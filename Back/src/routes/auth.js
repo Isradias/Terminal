@@ -29,7 +29,9 @@ router.post("/cadastrar", async (req, res) => {
 
 		enviarEmail(email, token);
 
-		res.send("Cadastro realizado!");
+		res.send(
+			"Cadastro realizado! Por favor, verifique seu email para autenticação do usuário",
+		);
 	} catch (err) {
 		res.status(500).send("Erro");
 	}
@@ -49,19 +51,63 @@ router.get("/verificar", async (req, res) => {
 
 		const valido = await bcrypt.compare(token, user[0].token);
 
-		if (!valido) {
+		if (valido) {
+			await sql`
+				UPDATE usuarios
+				SET verificado = true, token = NULL
+				WHERE email = ${email}
+				`;
+			res.send("Conta verificada!");
+		} else {
 			return res.status(400).send("Token inválido");
 		}
-
-		await sql`
-			UPDATE usuarios
-			SET verificado = true, token = NULL
-			WHERE email = ${email}
-		`;
-
-		res.send("Conta verificada!");
 	} catch {
 		res.status(500).send("Erro");
+	}
+});
+
+router.post("/validate_login", async function (req, res) {
+	const { email, senha } = req.body;
+
+	try {
+		const usuario = await sql`
+		SELECT * FROM usuarios WHERE email = ${email}
+		`;
+		if (usuario.length === 0) {
+			return res.status(401).send("Email ou senha incorretos");
+		}
+		if (usuario[0].verificado == false) {
+			return res
+				.status(403)
+				.send("Verifique o email na caixa de entrada ou spam");
+		}
+
+		const validate = await bcrypt.compare(senha, usuario[0].senha);
+		if (validate) {
+			return res.status(200).send("Acesso permitido");
+		} else {
+			return res.status(401).send("Email ou senha incorretos");
+		}
+	} catch (err) {
+		res.status(500).send("Erro");
+	}
+});
+
+// TODO: Precisa apagar isso aqui :)
+router.get("/delete", async function (req, res) {
+	try {
+		await sql`
+            TRUNCATE TABLE usuarios
+        `;
+		res.send(`
+			<script>
+				alert("Tabela limpa");
+				window.location.href = "/cadastro";
+			</script>
+		`);
+	} catch (err) {
+		console.log(err);
+		res.status(500).send("Erro ao deletar");
 	}
 });
 

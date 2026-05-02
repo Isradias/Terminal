@@ -12,14 +12,16 @@
             <h1>TERMINAL_OS</h1>
             <H3>AUTENTICAÇÃO DE USUÁRIO REQUERIDA</H3>
         </div>
-        <form action="/validate_login" method="get">
+        <div>
             <label for="campo_email">IDENTIFICADOR (EMAIL):</label><br>
             <input type="text" id="email" name="campo_email" value="usuario@terminal.exe"><br>
             <label for="campo_senha">CHAVE DE ACESSO (SENHA):</label><br>
             <input type="password" id="senha" name="campo_senha" value="0000000"><br><br>
-            <input type="submit" value="ENTRAR">
+            <button type="button" onclick="validate_login()">ENTRAR</button>
             <a href="/cadastro">CRIAR NOVA CONTA</a>
-        </form>
+            <p id="erro" style="color: red;"></p>
+        </div>
     </div>
 </body>
+<script src="Home/home.js"></script>
 </html>

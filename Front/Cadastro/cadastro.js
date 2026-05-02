@@ -3,7 +3,7 @@
             const email = document.getElementById("email").value;
             const senha = document.getElementById("senha").value;
 
-            const resposta = await fetch("/cadastrar", {
+            const response = await fetch("/cadastrar", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -15,9 +15,9 @@
                 })
             });
 
-            const texto = await resposta.text();
+            const texto = await response.text();
             alert(texto);
-            if (resposta.ok) {
+            if (response.ok) {
                 window.location.href = "/"
             }
         }
