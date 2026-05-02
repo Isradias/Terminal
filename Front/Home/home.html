@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terminal_os</title>
+    <link rel="stylesheet" href="Home/home.css">
 </head>
 <body>
     <di class="container">
@@ -12,12 +13,12 @@
             <h1>TERMINAL_OS</h1>
             <H3>AUTENTICAÇÃO DE USUÁRIO REQUERIDA</H3>
         </div>
-        <div>
-            <label for="campo_email">IDENTIFICADOR (EMAIL):</label><br>
+        <div class="identificador">
+            <label for="campo_email" class="identificador">IDENTIFICADOR (EMAIL):</label><br>
             <input type="text" id="email" name="campo_email" value="usuario@terminal.exe"><br>
             <label for="campo_senha">CHAVE DE ACESSO (SENHA):</label><br>
             <input type="password" id="senha" name="campo_senha" value="0000000"><br><br>
-            <button type="button" onclick="validate_login()">ENTRAR</button>
+            <button type="button" onclick="validate_login()" class="btn-login">ENTRAR</button>
             <a href="/cadastro">CRIAR NOVA CONTA</a>
             <p id="erro" style="color: red;"></p>
         </div>
