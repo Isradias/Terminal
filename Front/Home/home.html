@@ -1,28 +1,68 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terminal_os</title>
-    <link rel="stylesheet" href="Home/home.css">
-</head>
-<body>
-    <di class="container">
-        <div class="titulo">
-            <img src="" alt="logo_terminal">
-            <h1>TERMINAL_OS</h1>
-            <H3>AUTENTICAÇÃO DE USUÁRIO REQUERIDA</H3>
-        </div>
-        <div class="identificador">
-            <label for="campo_email" class="identificador">IDENTIFICADOR (EMAIL):</label><br>
-            <input type="text" id="email" name="campo_email" value="usuario@terminal.exe"><br>
-            <label for="campo_senha">CHAVE DE ACESSO (SENHA):</label><br>
-            <input type="password" id="senha" name="campo_senha" value="0000000"><br><br>
-            <button type="button" onclick="validate_login()" class="btn-login">ENTRAR</button>
-            <a href="/cadastro">CRIAR NOVA CONTA</a>
-            <p id="erro" style="color: red;"></p>
-        </div>
-    </div>
-</body>
-<script src="Home/home.js"></script>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Terminal_os</title>
+		<link rel="stylesheet" href="Home/home.css" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<div class="container">
+			<div class="titulo">
+				<div class="logo">
+					<img
+						src="../assets/img/terminal_logo.png"
+						alt="terminal_logo"
+					/>
+					<h1>TERMINAL_OS</h1>
+				</div>
+				<hr />
+				<p>AUTENTICAÇÃO DE USUÁRIO REQUERIDA</p>
+			</div>
+			<div class="formulario">
+				<label for="campo_email">IDENTIFICADOR (EMAIL):</label>
+				<div class="input-wrapper">
+					<span class="material-symbols-outlined icon">mail</span>
+
+					<input
+						type="text"
+						id="email"
+						name="campo_email"
+						placeholder="usuario@terminal.exe"
+					/>
+				</div>
+				<br />
+				<label for="campo_senha">CHAVE DE ACESSO (SENHA):</label>
+				<div class="input-wrapper">
+					<span class="material-symbols-outlined icon">lock</span>
+
+					<input
+						type="password"
+						id="senha"
+						name="campo_senha"
+						placeholder="0000000"
+					/>
+				</div>
+				<button
+					type="button"
+					onclick="validate_login()"
+					class="btn-login"
+				>
+					ENTRAR >
+				</button>
+				<div class="ou">
+					<hr />
+					ou
+					<hr />
+				</div>
+				<a href="/cadastro" class="btn-cadastro">CRIAR NOVA CONTA</a>
+				<p id="erro" style="color: red"></p>
+			</div>
+		</div>
+	</body>
+	<script src="Home/home.js"></script>
 </html>

@@ -5,20 +5,44 @@ body {
 	justify-content: center;
 	align-items: center;
 	background-color: black;
+	font-family: IBM Plex Mono;
 }
-.identificador {
-	border: 2px solid rgb(75, 72, 72);
+.logo {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+}
+
+.logo img {
+	height: 35px;
+	fill: #36e270;
+}
+
+.titulo hr {
+	border-color: #323743;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	border: 2px solid #323743;
 	padding: 20px;
 	border-radius: 0px;
-	background-color: rgb(21, 22, 22);
+	background-color: #191b21;
 	width: 300px;
 	text-align: center;
+	font-size: 12px;
+	line-height: 16px;
+	font-weight: 400;
+	color: #bdc1caff;
+	gap: 30px;
 }
 h1 {
-	color: rgb(24, 175, 44);
+	color: #36e270;
 	font-family:
 		"Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-	font-size: 20px;
+	font-size: 30px;
 	height: max-content;
 }
 h3 {
@@ -35,41 +59,71 @@ h4 {
 h6 {
 	font-family: monospace;
 }
-#email {
-	color: aliceblue;
-	font-family: monospace;
-	font-size: 8px;
-	text-align: left;
+
+.formulario {
+	display: flex;
+	flex-direction: column;
+	text-align: start;
 }
-.btn-login {
-	background-color: rgb(24, 175, 44);
+
+.formulario label {
+	padding: 5px 2px;
+}
+
+.formulario input {
+	background-color: black;
+	height: 40px;
+}
+
+.input-wrapper {
+	position: relative;
+	width: 100%;
+}
+
+.input-wrapper input {
+	width: 100%;
+	box-sizing: border-box;
+	padding-left: 40px;
+	font-family: monospace;
+	font-size: 13px;
+	color: aliceblue;
+}
+
+.input-wrapper .icon {
+	position: absolute;
+	left: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.btn-login,
+.btn-cadastro {
+	margin: 10px 0px;
+	padding: 10px 0;
+	background-color: #36e270;
 	color: rgb(13, 13, 14);
 	width: 100%;
 	border: 0;
 	cursor: pointer;
 	transition: 0.3s;
-	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	font-family: IBM Plex Mono;
 }
-.btn-login:hover {
-	background-color: rgb(109, 241, 127);
+.btn-login:hover,
+.btn-cadastro:hover {
+	background-color: #02a137;
 }
-.chave-acesso {
-	color: aliceblue;
-	font-family: monospace;
-	text-align: left;
-	font-size: 8px;
+
+.btn-cadastro {
+	text-align: center;
+    text-decoration: none;
 }
-.nova-conta {
-	color: rgb(24, 175, 44);
-	font-family: monospace;
-	font-size: small;
-	cursor: pointer;
+
+.ou {
+	display: flex;
 }
-.logo {
-	text-align: left;
-	font-size: small;
-}
-hr {
-	color: rgb(36, 32, 32);
-	background-color: rgb(48, 47, 47);
+
+.ou hr {
+	border-color: #323743;
+	width: 40%;
+    height: 1px;
 }
