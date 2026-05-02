@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "MeuPrimeiroServidor.js",
   "scripts": {
-    "dev": "clear && nodemon MeuPrimeiroServidor.js"
+    "dev": "clear && nodemon server.js"
   },
   "keywords": [],
   "author": "Israel Dias",
