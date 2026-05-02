@@ -17,4 +17,7 @@
 
             const texto = await resposta.text();
             alert(texto);
+            if (resposta.ok) {
+                window.location.href = "/"
+            }
         }
