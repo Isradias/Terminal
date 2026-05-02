@@ -6,25 +6,78 @@
     <title>Terminal</title>
 </head>
 <body>
+    
 
-    <h1>Criar Conta</h1>
-
-    <div>
-        <label for="nick">NICKNAME (APELIDO):</label><br>
-        <input type="text" id="nick" name="nick" value="usuario"><br>
+    <div class="form">
+        <h1>CRIAR CADASTRO</h1>
+        <label for="nick" class="nick">NICKNAME (APELIDO):</label><br>
+        <input type="text"  id="nick" name="nick" value="usuario"><br>
         
-        <label for="email">IDENTIFICADOR (EMAIL):</label><br>
+        <label for="email" class="email">IDENTIFICADOR (EMAIL):</label><br>
         <input type="text" id="email" name="email" value="usuario@terminal.exe"><br>
         
-        <label for="senha">CHAVE DE ACESSO (SENHA):</label><br>
+        <label for="senha" class="chave" >CHAVE DE ACESSO (SENHA):</label><br>
         <input type="password" id="senha" name="senha" value="0000000"><br><br>
-
-        <button id="btCriar_usuario" onclick="cadastrar()" type="button">CRIAR USUÁRIO</button>
-
-        <a href="/">VOLTAR PARA LOGIN</a>
+        <label for="senha" class="chave" > CONFIRMAR CHAVE DE ACESSO:</label><br>
+        <input type="password" id="senha" name="senha" value="0000000"><br><br>
+        <button class="btn-login" id="btCriar_usuario" onclick="cadastrar()" type="button">CRIAR USUÁRIO</button>
+<HR>
+        <a href="/">  voltar </a>
+        <a href="/delete" class="lixo">protocolo de limpeza</a>
     </div>
-    <a href="/delete">Protocolo limpeza total</a>
+    
 
     <script src="/Cadastro/cadastro.js"></script>
 </body>
 </html>
+<style>
+    body{
+        height: 100vh;
+        margin: 0%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+    }
+    .form{
+        border: 2px solid rgb(75, 72, 72);
+        padding: 20px;
+        border-radius: 0px;
+        background-color: rgb(21, 22, 22);
+        width: 300px;
+        text-align: left;
+    justify-content: center;
+    }
+   h1{
+        color: rgb(11, 248, 23);
+        margin: 0;
+        text-align: center;
+        font-family: monospace;
+    }
+
+    .btn-login{
+        width: 100%;
+        background-color:rgb(11, 248, 23);
+        transition: 0.3s;
+        cursor: pointer;
+
+    }
+    .btn-login:hover{
+        background-color: rgb(88, 248, 96);
+    }
+    .email{
+        font-family: monospace;
+        color: aliceblue;
+        font-size: 12px;
+    }
+  .nick{
+    color: aliceblue;
+    font-family: monospace;
+    font-size: 12px;
+  }
+  .chave{
+    color: aliceblue;
+    font-family: monospace;
+
+  }
+</style>
