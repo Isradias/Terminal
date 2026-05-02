@@ -6,20 +6,113 @@
     <title>Terminal_os</title>
 </head>
 <body>
-    <di class="container">
+    <div class="container">
         <div class="titulo">
-            <img src="" alt="logo_terminal">
-            <h1>TERMINAL_OS</h1>
-            <H3>AUTENTICAÇÃO DE USUÁRIO REQUERIDA</H3>
         </div>
         <form action="/validate_login" method="get">
-            <label for="campo_email">IDENTIFICADOR (EMAIL):</label><br>
+            <img src="" alt="logotipo" class="logo"> <h1>TERMINAL_OS</h1>
+ <H3>AUTENTICAÇÃO DE USUÁRIO REQUERIDA</H3>
+ <div class="identificador">
+            <label for="campo_email" class="identificador" >IDENTIFICADOR (EMAIL): </label><br>
             <input type="text" id="email" name="campo_email" value="usuario@terminal.exe"><br>
             <label for="campo_senha">CHAVE DE ACESSO (SENHA):</label><br>
             <input type="password" id="senha" name="campo_senha" value="0000000"><br><br>
-            <input type="submit" value="ENTRAR">
-            <a href="/cadastro">CRIAR NOVA CONTA</a>
-        </form>
+ </div>    
+            <button class="btn-login">ENTRAR</button>
+
+        <hr>
+            <a href="" class="chave-acesso">  Esqueceu sua chave de acesso </a>
+
+
+        
+            <a href="/cadastro" class="nova-conta">CRIAR NOVA CONTA</a>
+       <hr>
+       <h4>ao acessar esse sistema, você concorda com os protocolos de segurança rede e termos de serviço do TERMINAL_OS. acesso nao autorizado será monitorado.</h4>
+       <h6>ENCRYPTED_SSL         V1.0.4_STABLE</h6>
+    </form>
+
     </div>
 </body>
 </html>
+<style>
+    body{
+        height: 100vh;
+        margin: 0%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+    }
+    form{
+        border: 2px solid rgb(75, 72, 72);
+        padding: 20px;
+        border-radius: 0px;
+        background-color: rgb(21, 22, 22);
+        width: 300px;
+        text-align: center;
+        
+    }
+    h1{
+        color: rgb(24, 175, 44);
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 20px;
+        height: max-content;
+    }
+    h3{
+        color: aliceblue;
+        font-size: 13px;
+        font-family: monospace;
+    }
+    h4{
+        text-align: center;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: small;
+        color: rgb(51, 48, 48);
+        
+    }
+    h6{
+        font-family:monospace ;
+
+    }
+   .identificador{
+    color: aliceblue;
+    font-family: monospace;
+    font-size: 8px;
+    text-align: left;
+   }
+   .btn-login{
+
+    background-color: rgb(24, 175, 44);
+    color: rgb(13, 13, 14);
+    width: 100%;
+    border: 0;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+   }
+   .btn-login:hover{
+    background-color: rgb(109, 241, 127);
+   }
+   .chave-acesso{
+    color: aliceblue;
+    font-family: monospace;
+    text-align: left;
+    font-size: 8px;
+   }
+   .nova-conta{
+    color: rgb(24, 175, 44);
+    font-family: monospace;
+    font-size: small;
+    cursor: pointer;
+   }
+   .logo{
+    text-align: left;
+    font-size: small;
+
+   }
+  hr{
+    color: rgb(36, 32, 32);
+    background-color: rgb(48, 47, 47);
+  }
+</style>
