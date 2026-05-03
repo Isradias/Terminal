@@ -22,3 +22,11 @@ async function validate_login() {
         mensagem_erro.innerText = texto;
     }
 }
+
+document.querySelectorAll(".login-input").forEach((input) => {
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      validate_login();
+    }
+  });
+});
