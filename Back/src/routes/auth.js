@@ -84,6 +84,7 @@ router.post("/validate_login", async function (req, res) {
 
 		const validate = await bcrypt.compare(senha, usuario[0].senha);
 		if (validate) {
+			req.session.user = { email }
 			return res.status(200).send("Acesso permitido");
 		} else {
 			return res.status(401).send("Email ou senha incorretos");
