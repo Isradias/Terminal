@@ -14,9 +14,7 @@
 		<div class="container">
 			<div class="titulo">
 				<div class="logo">
-					<img
-						src="../assets/img/terminal_logo.png"
-						alt="terminal_logo"
+					<img src="\terminal\Front\assets\img\terminal_logo.png"
 					/>
 					<h1>TERMINAL_OS</h1>
 				</div>
@@ -66,3 +64,134 @@
 	</body>
 	<script src="Home/home.js"></script>
 </html>
+<style>
+body {
+	height: 100vh;
+	margin: 0%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: black;
+	font-family: IBM Plex Mono;
+}
+.logo {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+}
+
+.logo img {
+	height: 35px;
+	fill: #36e270;
+}
+
+.titulo hr {
+	border-color: #323743;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	border: 2px solid #323743;
+	padding: 20px;
+	border-radius: 0px;
+	background-color: #191b21;
+	width: 300px;
+	text-align: center;
+	font-size: 12px;
+	line-height: 16px;
+	font-weight: 400;
+	color: #bdc1caff;
+	gap: 30px;
+}
+h1 {
+	color: #36e270;
+	font-family:
+		"Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+	font-size: 30px;
+	height: max-content;
+}
+h3 {
+	color: aliceblue;
+	font-size: 13px;
+	font-family: monospace;
+}
+h4 {
+	text-align: center;
+	font-family: "Courier New", Courier, monospace;
+	font-size: small;
+	color: rgb(51, 48, 48);
+}
+h6 {
+	font-family: monospace;
+}
+
+.formulario {
+	display: flex;
+	flex-direction: column;
+	text-align: start;
+}
+
+.formulario label {
+	padding: 5px 2px;
+}
+
+.formulario input {
+	background-color: black;
+	height: 40px;
+}
+
+.input-wrapper {
+	position: relative;
+	width: 100%;
+}
+
+.input-wrapper input {
+	width:100%;
+	box-sizing: border-box;
+	padding-left: 40px;
+	font-family: monospace;
+	font-size: 13px;
+	color: aliceblue;
+}
+
+.input-wrapper .icon {
+	position: absolute;
+	left: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.btn-login,
+.btn-cadastro {
+	margin: 10px 0px;
+	padding: 10px 0;
+	background-color: #36e270;
+	color: rgb(13, 13, 14);
+	width: 100%;
+	border: 0;
+	cursor: pointer;
+	transition: 0.3s;
+	font-family: IBM Plex Mono;
+}
+.btn-login:hover,
+.btn-cadastro:hover {
+	background-color: #02a137;
+}
+
+.btn-cadastro {
+	text-align: center;
+    text-decoration: none;
+}
+
+.ou {
+	display: flex;
+}
+
+.ou hr {
+	border-color: #323743;
+	width: 40%;
+    height: 1px;
+}
+</style>
