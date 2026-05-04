@@ -6,25 +6,30 @@
 		<title>Terminal_os</title>
 		<link
 			rel="stylesheet"
-			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&icon_names=grid_view,logout"
+			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=account_circle,grid_view,logout"
 		/>
+		<link rel="stylesheet" href="/Fases/hub.css" />
 	</head>
 	<body>
 		<header>
-			<!-- TODO: Precisa tirar o style daqui, ta de HACK pra eu ver o que tem na tela -->
-			<img
-				src="../assets/img/terminal_logo.png"
-				alt="logo"
-				style="height: 25px"
-			/>
-			<h3>Terminal</h3>
-			<span class="material-symbols-outlined"> grid_view </span>
-			<h4>Fases</h4>
-			<h4 id="nivel">NIVEL:</h4>
-			<hr />
-			<h4 id="nick">usuario</h4>
-			<a href=""><img src="" alt="perfil" /></a>
-			<span class="material-symbols-outlined"> logout </span>
+			<div class="logo">
+				<img
+					src="../assets/img/terminal_logo.png"
+					alt="logo"
+				/>
+				<h3>Terminal</h3>
+			</div>
+			<div class="class_nivel">
+				<h4 id="nivel">NIVEL:</h4>
+			</div>
+			<div class="usuario">
+				<h4 id="nick">usuario</h4>
+				<span class="material-symbols-outlined"> account_circle </span>
+			</div>
+			<div class="sair">
+				<!-- TODO: Isso aqui deveria sem um link de logout -->
+				<span class="material-symbols-outlined"> logout </span>
+			</div>
 		</header>
 		<div class="titulo">
 			<h1>SELEÇÃO DE FASES</h1>
@@ -36,20 +41,15 @@
 				<h4>5 ENTRADAS ENCONTRADAS</h4>
 			</div>
 			<div class="missoes">
-				<img src="" alt="status" />
-				<div id="fase">
-					<h4 id="Nivel">
-						Nivel <span id="dificuldade">Dificuldade</span>
-					</h4>
-                    <h3 id="titulo_missao">titulo_missao</h3>
-                    <h4 id="subtitulo_missao">subtitulo_missao</h4>
-				</div>
+				<!-- ELEMENTO CRIADO DINAMICAMENTE COM JS -->
+				<template id="missao_template">
+					<img class="status_img" src="" alt="status" />
+				</template>
 			</div>
-            <div class="detalhes_missao" id="detalhes">detalhes
-            </div>
+			<!-- DETALHES DA MISSÃO SERÃO COLOCADOS AQUI -->
 		</div>
 		<!-- TODO: Apagar isso aqui, foi só pra teste -->
 		<button type="button" onclick="subir_nivel()">Up</button>
 	</body>
-    <script src="/Fases/hub.js"></script>
+	<script src="/Fases/hub.js"></script>
 </html>

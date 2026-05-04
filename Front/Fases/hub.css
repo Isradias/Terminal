@@ -1,0 +1,71 @@
+body {
+	height: 100vh;
+	margin: 0%;
+	background-color: black;
+	font-family: IBM Plex Mono;
+	color: aliceblue;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+}
+
+header {
+	display: grid;
+	align-items: center;
+	grid-template-columns: 150px 5fr min-content 50px;
+	height: 70px;
+	padding: 0 10px;
+	border-width: 0 0 2px 0;
+	border-style: solid;
+	border-color: #323743;
+}
+
+.logo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #36e270;
+	font-size: larger;
+	height: 100%;
+	box-sizing: border-box;
+	gap: 5px;
+}
+
+.logo img {
+	height: 40px;
+}
+
+.class_nivel {
+	display: flex;
+	align-items: center;
+	justify-content: end;
+	border-width: 0 2px 0 0;
+	border-style: solid;
+	border-color: #323743;
+	padding: 0 10px;
+	height: 30px;
+}
+
+.usuario {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	padding: 0 10px;
+}
+
+.usuario span {
+	font-size: 35px;
+	margin: 0 5px;
+}
+
+.sair {
+	display: flex;
+	justify-content: center;
+}
