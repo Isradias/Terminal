@@ -11,9 +11,10 @@
 		/>
 		<link
 			rel="stylesheet"
-			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=account_circle,grid_view,logout"
+			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
 		/>
 		<link rel="stylesheet" href="/Fases/hub.css" />
+		<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@100;300;400;600&display=swap" rel="stylesheet">
 	</head>
 	<body>
 		<header>
@@ -29,31 +30,37 @@
 				<span class="material-symbols-outlined"> account_circle </span>
 			</div>
 			<div class="sair">
-				<!-- TODO: Isso aqui deveria sem um link de logout -->
 				 <button type="button" onclick="logout()" class="logout">
 					 <span class="material-symbols-outlined"> logout </span>
 				 </button>
 			</div>
 		</header>
-		<div class="titulo">
-			<h1>SELEÇÃO DE FASES</h1>
-			<h4>> LISTANDO NODOS DE ACESSO DISPONÍVEIS NA REDE LOCAL...</h4>
-		</div>
-		<div class="mapa">
-			<div class="mapa_titulo">
-				<h4>MAPA DE ACESSO</h4>
-				<h4>5 ENTRADAS ENCONTRADAS</h4>
+		<div class="container">
+			<div class="titulo">
+				<h1>SELEÇÃO DE FASES</h1>
+				<h4>> LISTANDO NODOS DE ACESSO DISPONÍVEIS NA REDE LOCAL...</h4>
 			</div>
-			<div class="missoes">
+			<div class="mapa" id="id_mapa">
+				<div class="mapa_titulo">
+					<h4>MAPA DE ACESSO</h4>
+					<h4 id="entradas_encontradas">ENTRADAS ENCONTRADAS</h4>
+				</div>
 				<!-- ELEMENTO CRIADO DINAMICAMENTE COM JS -->
 				<template id="missao_template">
-					<img class="status_img" src="" alt="status" />
+					<button class="btn_missao" type="button">
+						<div class="status">status</div>
+						<div class="missao_resumo">
+							<h4 class="fase">FASE XX <span class="dificuldade">Difficulty</span></h4>
+							<h2 class="titulo_missao">Titulo</h2>
+							<h4 class="subtitulo">Subtitulo</h4>
+						</div>
+					</button>
 				</template>
+				<!-- DETALHES DA MISSÃO SERÃO COLOCADOS AQUI -->
 			</div>
-			<!-- DETALHES DA MISSÃO SERÃO COLOCADOS AQUI -->
 		</div>
 		<!-- TODO: Apagar isso aqui, foi só pra teste -->
 		<button type="button" onclick="subir_nivel()">Up</button>
 	</body>
-	<script src="/Fases/hub.js"></script>
+	<script src="/Fases/hub.js" type="module"></script>
 </html>
