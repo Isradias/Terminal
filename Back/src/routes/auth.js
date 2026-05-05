@@ -94,6 +94,12 @@ router.post("/validate_login", async function (req, res) {
 	}
 });
 
+router.post("/logout", (req, res) => {
+	req.session.destroy(function() {
+		res.sendStatus(200);
+	});
+});
+
 // TODO: Precisa apagar isso aqui :)
 router.get("/delete", async function (req, res) {
 	try {

@@ -27,6 +27,10 @@ header {
 	border-color: #323743;
 }
 
+header :hover{
+	cursor: pointer;
+}
+
 .logo {
 	display: flex;
 	align-items: center;
@@ -68,4 +72,17 @@ header {
 .sair {
 	display: flex;
 	justify-content: center;
+}
+
+.logout{
+	background-color: black;
+	border: none;
+}
+
+.logout span{
+	color: aliceblue;
+}
+
+.logout:hover{
+	scale: 1.1;
 }

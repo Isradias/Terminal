@@ -1,14 +1,12 @@
 import express from "express";
 import sql from "../../db.js";
 import session from "express-session";
+import logged from "./utils.js"
 
 const router = express.Router();
 
 router.get("/nivel", async function (req, res) {
-	if (!req.session.user) {
-		// TODO: Criar uma página para os espertinhos não autenticados
-		return res.status(401).send("Não autenticado");
-	}
+	if (!logged(req, res)) return;
 
 	try {
 		const email = req.session.user.email;
@@ -22,10 +20,7 @@ router.get("/nivel", async function (req, res) {
 });
 
 router.put("/subir_nivel", async function (req, res) {
-	if (!req.session.user) {
-		// TODO: Criar uma página para os espertinhos não autenticados
-		return res.status(401).send("Não autenticado");
-	}
+	if (!logged(req, res)) return;
 
 	try {
 		const email = req.session.user.email;
@@ -43,6 +38,23 @@ router.put("/subir_nivel", async function (req, res) {
 		return res.json({ nivel: nivel_novo });
 	} catch (err) {
 		console.log(err);
+	}
+});
+
+router.get("/get_user", async function (req, res) {
+	if (!logged(req, res)) return;
+
+	try {
+		const email = req.session.user.email;
+		const result = await sql`
+			SELECT nick, nivel FROM usuarios WHERE email = ${email}
+		`;
+		return res
+			.status(200)
+			.send({ nick: result[0].nick, nivel: result[0].nivel });
+	} catch (err) {
+		console.log(err);
+		return res.send("Erro ao buscar usuario");
 	}
 });
 

@@ -1,6 +1,7 @@
 import express from "express";
 import path from "path";
 import session from "express-session";
+import logged from "./utils.js"
 
 const router = express.Router();
 
@@ -13,10 +14,7 @@ router.get("/cadastro", (req, res) => {
 });
 
 router.get("/fases", (req, res) => {
-	if (!req.session.user) {
-		// TODO: Criar uma página para os espertinhos não autenticados
-		return res.status(401).send("Não autenticado");
-	}
+	if (!logged(req, res)) return
 	res.sendFile(path.resolve("../Front/Fases/hub.html"));
 });
 
