@@ -82,6 +82,11 @@ const missoes2 = [
 		subtitulo: "Criar arquivos ocultos e listá-los com ls -a.",
 		dificuldade: "Easy",
 	},
+	{
+		titulo: "Segurança",
+		subtitulo: "Uso de comandos com chmod",
+		dificuldade: "Medium"
+	}
 ];
 
 export default missoes2;
