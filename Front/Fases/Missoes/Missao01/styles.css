@@ -4,6 +4,8 @@ body {
 	background-color: black;
 	font-family: IBM Plex Mono;
 	color: aliceblue;
+	display: flex;
+	flex-direction: column;
 }
 
 p,
@@ -92,7 +94,7 @@ header :hover {
 }
 
 .container_objetivo{
-    background-color: #13151A;
+	background-color: #13151A;
     border-bottom: 2px solid #323743;
     display: flex;
     padding: 20px;
@@ -103,7 +105,7 @@ header :hover {
 }
 
 .container_objetivo p{
-    padding: 6px;
+	padding: 6px;
     font-size: 12px;
     color: #36e270;
     border: #36e270 solid 2px;
@@ -112,10 +114,48 @@ header :hover {
 }
 
 #objetivo {
-    border: none;
+	border: none;
     color: aliceblue;
     font-size: 16px;
     width: 100%;
     text-wrap: inherit;
     text-align: left;
+}
+
+.container_terminal {
+	display: flex;
+	flex-direction: column;
+	justify-content: end;
+	background-color: #323743;
+	height: 80%;
+	margin: 2%;
+	padding: 3%;
+	font-weight: 600;
+	font-size: 18px;
+	color: aliceblue;
+	gap: 15px;
+}
+
+#command_line{
+	background-color: transparent;
+	border: none;
+	outline: none;
+	font-weight: 500;
+	font-size: 18px;
+	color: aliceblue;
+}
+
+#command_line::placeholder{
+	font-family: IBM Plex Mono;
+}
+
+#command_line:focus {
+}
+
+.command{
+	color: #36e270;
+}
+
+.response{
+	padding-left: 20px;
 }
