@@ -35,6 +35,9 @@
                 id="nick" 
                 name="nick" 
                 placeholder="Digite seu nome..."
+                minlength="3"
+                maxlength="30"
+                required
             />
         </div>
         <br>
@@ -47,6 +50,7 @@
                 id="email" 
                 name="email" 
                 placeholder="seu@endereco.com"
+                required
             />
         </div>
         <br>
@@ -62,6 +66,9 @@
                         id="senha" 
                         name="senha" 
                         placeholder="Digite sua senha"
+                        minlength="8"
+                        maxlength="100"
+                        required
                     />
                 </div>
             </div>
@@ -78,6 +85,9 @@
                         id="confirmar_senha" 
                         name="confirmar_senha" 
                         placeholder="Confirme sua senha"
+                        minlength="8"
+                        maxlength="100"
+                        required
                     />
                 </div>
             </div>
@@ -86,7 +96,7 @@
         <br>
 
        <div class="checkbox-area">
-            <input type="checkbox" id="termos" name="termos">
+            <input type="checkbox" id="termos" name="termos" required>
             <label for="termos">Aceito os termos de serviço e política de privacidade</label>
         </div>
         <br>
