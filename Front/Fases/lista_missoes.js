@@ -1,87 +1,84 @@
 const missoes = [
 	{
-		titulo: "Invasão Silenciosa",
-		subtitulo:
-			"Exploração básica de sistemas de arquivos e listagem de diretórios.",
+		titulo: "Reconhecimento do Sistema",
+		subtitulo: "Mapeie o ambiente e descubra onde está.",
 		dificuldade: "Easy",
+		objetivo:
+			"Descobrir o diretório atual, listar arquivos e identificar pastas relevantes.",
+		habilidades: ["pwd", "ls", "cd"],
 	},
 	{
-		titulo: "Quebra de Permissões",
-		subtitulo:
-			"Manipulação de privilégios de usuário e modificação de permissões.",
+		titulo: "Arquivo Suspeito",
+		subtitulo: "Encontre evidências escondidas no sistema.",
 		dificuldade: "Easy",
+		objetivo:
+			"Localizar um arquivo específico e visualizar seu conteúdo.",
+		habilidades: ["find", "cat", "less"],
 	},
 	{
-		titulo: "Interceptação de Tráfego",
-		subtitulo: "Análise de logs de rede e extração de dados sensíveis.",
+		titulo: "Limpeza de Rastros",
+		subtitulo: "Remova evidências sem deixar pistas.",
 		dificuldade: "Easy",
+		objetivo:
+			"Deletar arquivos e diretórios específicos sem afetar outros dados.",
+		habilidades: ["rm", "rmdir"],
+	},
+	{
+		titulo: "Manipulação de Arquivos",
+		subtitulo: "Reorganize dados para confundir o sistema.",
+		dificuldade: "Easy",
+		objetivo:
+			"Copiar, mover e renomear arquivos para locais estratégicos.",
+		habilidades: ["cp", "mv"],
+	},
+	{
+		titulo: "Análise de Logs",
+		subtitulo: "Extraia informações úteis de grandes arquivos.",
+		dificuldade: "Medium",
+		objetivo:
+			"Filtrar linhas específicas e identificar padrões em logs.",
+		habilidades: ["grep", "head", "less"],
+	},
+	{
+		titulo: "Permissões Críticas",
+		subtitulo: "Ganhe acesso a áreas restritas.",
+		dificuldade: "Medium",
+		objetivo:
+			"Alterar permissões de arquivos para permitir leitura/escrita.",
+		habilidades: ["chmod"],
+	},
+	{
+		titulo: "Processos Sob Controle",
+		subtitulo: "Investigue o que está rodando no sistema.",
+		dificuldade: "Medium",
+		objetivo:
+			"Listar processos ativos e identificar um processo suspeito.",
+		habilidades: ["ps"],
+	},
+	{
+		titulo: "Operação Fantasma",
+		subtitulo: "Crie e esconda arquivos sem ser detectado.",
+		dificuldade: "Medium",
+		objetivo:
+			"Criar arquivos ocultos e garantir que não apareçam em listagens comuns.",
+		habilidades: ["touch", "ls -a"],
+	},
+	{
+		titulo: "Busca Avançada",
+		subtitulo: "Encontre dados específicos em meio ao caos.",
+		dificuldade: "Medium",
+		objetivo:
+			"Combinar busca de arquivos com filtragem de conteúdo.",
+		habilidades: ["find", "grep"],
+	},
+	{
+		titulo: "Invasão Completa",
+		subtitulo: "Execute uma operação completa no sistema.",
+		dificuldade: "Hard",
+		objetivo:
+			"Navegar pelo sistema, encontrar um arquivo, alterar permissões e extrair informação específica.",
+		habilidades: ["cd", "find", "chmod", "grep", "cat"],
 	},
 ];
 
-const missoes2 = [
-	{
-		titulo: "Varredura Inicial",
-		subtitulo:
-			"Listar arquivos e diretórios usando comandos básicos como ls.",
-		dificuldade: "Easy",
-	},
-	{
-		titulo: "Rastro no Sistema",
-		subtitulo:
-			"Descobrir o diretório atual e navegar entre pastas com pwd e cd.",
-		dificuldade: "Easy",
-	},
-	{
-		titulo: "Arquivo Fantasma",
-		subtitulo:
-			"Criar e visualizar arquivos simples utilizando touch e cat.",
-		dificuldade: "Easy",
-	},
-	{
-		titulo: "Limpeza de Evidências",
-		subtitulo: "Remover arquivos e diretórios com rm e rmdir.",
-		dificuldade: "Easy",
-	},
-	{
-		titulo: "Duplicação de Dados",
-		subtitulo: "Copiar arquivos e pastas usando cp.",
-		dificuldade: "Easy",
-	},
-	{
-		titulo: "Movimentação Tática",
-		subtitulo: "Mover e renomear arquivos com mv.",
-		dificuldade: "Easy",
-	},
-	{
-		titulo: "Leitura de Logs",
-		subtitulo: "Visualizar conteúdos de arquivos grandes com less e head.",
-		dificuldade: "Easy",
-	},
-	{
-		titulo: "Busca na Escuridão",
-		subtitulo: "Encontrar arquivos específicos com find.",
-		dificuldade: "Easy",
-	},
-	{
-		titulo: "Sinal Oculto",
-		subtitulo: "Filtrar informações dentro de arquivos usando grep.",
-		dificuldade: "Easy",
-	},
-	{
-		titulo: "Inventário do Sistema",
-		subtitulo: "Listar processos ativos com ps.",
-		dificuldade: "Easy",
-	},
-	{
-		titulo: "Eco do Terminal",
-		subtitulo: "Exibir mensagens e variáveis com echo.",
-		dificuldade: "Easy",
-	},
-	{
-		titulo: "Arquivo Secreto",
-		subtitulo: "Criar arquivos ocultos e listá-los com ls -a.",
-		dificuldade: "Easy",
-	},
-];
-
-export default missoes2;
+export default missoes

@@ -91,67 +91,31 @@ header :hover {
 	scale: 1.1;
 }
 
-.container {
-	display: flex;
-	flex-direction: column;
-	gap: 30px;
-	margin: 10px 60px;
+.container_objetivo{
+    background-color: #13151A;
+    border-bottom: 2px solid #323743;
+    display: flex;
+    padding: 20px;
+    padding-left: 150px;
+    gap: 20px;
+    align-items: center;
+    text-align: center;
 }
 
-.titulo {
-	display: flex;
-	flex-direction: column;
-	gap: 5px;
-	padding: 20px 0;
-	border-bottom: solid 2px #323743;
+.container_objetivo p{
+    padding: 6px;
+    font-size: 12px;
+    color: #36e270;
+    border: #36e270 solid 2px;
+    width: min-content;
+    text-wrap: nowrap;
 }
 
-.titulo h1 {
-	font-style: oblique;
-	font-size: 45px;
-}
-
-.mapa {
-	border: #323743 solid 2px;
-	color: #d8d8d8;
-	display: grid;
-	grid-template-rows: min-content;
-	grid-auto-rows: 100px;
-}
-
-.mapa > * {
-	border: 1px solid #323743;
-}
-
-.mapa_titulo {
-	display: flex;
-	justify-content: space-between;
-	padding: 10px;
-}
-
-.status span {
-	font-size: 40px;
-	padding: 20px;
-}
-
-.titulo_missao {
-	margin: 0;
-}
-
-.btn_missao {
-	background-color: #1E2128;
-	color: aliceblue;
-	display: flex;
-	align-items: center;
-	text-align: left;
-	transition: 0.1s;
-}
-
-.btn_missao:hover{
-	cursor: pointer;
-	border: solid 2px #36e270;
-}
-
-.btn_missao h4{
-	padding: 5px 0;
+#objetivo {
+    border: none;
+    color: aliceblue;
+    font-size: 16px;
+    width: 100%;
+    text-wrap: inherit;
+    text-align: left;
 }

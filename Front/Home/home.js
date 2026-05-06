@@ -20,6 +20,7 @@ async function validate_login() {
 	} else {
 		const texto = await response.text();
 		mensagem_erro.innerText = texto;
+		document.getElementById("senha").value = ""
 	}
 }
 
