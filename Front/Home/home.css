@@ -7,6 +7,7 @@ body {
 	background-color: black;
 	font-family: IBM Plex Mono;
 }
+
 .logo {
 	display: flex;
 	justify-content: center;
@@ -36,28 +37,15 @@ body {
 	line-height: 16px;
 	font-weight: 400;
 	color: #bdc1caff;
-	gap: 30px;
+	gap: 20px;
 }
+
 h1 {
 	color: #36e270;
 	font-family:
 		"Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 	font-size: 30px;
 	height: max-content;
-}
-h3 {
-	color: aliceblue;
-	font-size: 13px;
-	font-family: monospace;
-}
-h4 {
-	text-align: center;
-	font-family: "Courier New", Courier, monospace;
-	font-size: small;
-	color: rgb(51, 48, 48);
-}
-h6 {
-	font-family: monospace;
 }
 
 .formulario {
@@ -106,8 +94,10 @@ h6 {
 	border: 0;
 	cursor: pointer;
 	transition: 0.3s;
-	font-family: IBM Plex Mono;
+	font-family:
+		"Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
+
 .btn-login:hover,
 .btn-cadastro:hover {
 	background-color: #02a137;
@@ -115,7 +105,7 @@ h6 {
 
 .btn-cadastro {
 	text-align: center;
-    text-decoration: none;
+	text-decoration: none;
 }
 
 .ou {
@@ -125,5 +115,14 @@ h6 {
 .ou hr {
 	border-color: #323743;
 	width: 40%;
-    height: 1px;
+	height: 1px;
+}
+
+.btn-recuperar {
+	color: aliceblue;
+	text-decoration: none;
+	text-align: center;
+	padding: 10px;
+	font-family:
+		"Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }

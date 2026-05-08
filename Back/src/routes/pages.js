@@ -1,5 +1,7 @@
 import express from "express";
 import path from "path";
+import session from "express-session";
+import logged from "./utils.js"
 
 const router = express.Router();
 
@@ -12,7 +14,13 @@ router.get("/cadastro", (req, res) => {
 });
 
 router.get("/fases", (req, res) => {
+	if (!logged(req, res)) return
 	res.sendFile(path.resolve("../Front/Fases/hub.html"));
+});
+
+router.get("/protocolo_01", (req, res) => {
+	if (!logged(req, res)) return
+	res.sendFile(path.resolve("../Front/Fases/Missoes/Missao01/index.html"));
 })
 
 export default router;

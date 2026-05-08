@@ -1,0 +1,157 @@
+body {
+	height: 100vh;
+	margin: 0%;
+	background-color: black;
+	font-family: IBM Plex Mono;
+	color: aliceblue;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+}
+
+header {
+	display: grid;
+	align-items: center;
+	grid-template-columns: 150px 5fr min-content 50px;
+	height: 70px;
+	padding: 0 10px;
+	border-width: 0 0 2px 0;
+	border-style: solid;
+	border-color: #323743;
+}
+
+h4 {
+	font-weight: 300;
+}
+
+header :hover {
+	cursor: pointer;
+}
+
+.logo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #36e270;
+	font-size: larger;
+	height: 100%;
+	box-sizing: border-box;
+	gap: 5px;
+}
+
+.logo img {
+	height: 40px;
+}
+
+.class_nivel {
+	display: flex;
+	align-items: center;
+	justify-content: end;
+	border-width: 0 2px 0 0;
+	border-style: solid;
+	border-color: #323743;
+	padding: 0 10px;
+	height: 30px;
+}
+
+.usuario {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	padding: 0 10px;
+}
+
+.usuario span {
+	font-size: 35px;
+	margin: 0 5px;
+}
+
+.sair {
+	display: flex;
+	justify-content: center;
+}
+
+.logout {
+	background-color: black;
+	border: none;
+}
+
+.logout span {
+	color: aliceblue;
+}
+
+.logout:hover {
+	scale: 1.1;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+	margin: 10px 60px;
+}
+
+.titulo {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	padding: 20px 0;
+	border-bottom: solid 2px #323743;
+}
+
+.titulo h1 {
+	font-style: oblique;
+	font-size: 45px;
+}
+
+.mapa {
+	border: #323743 solid 2px;
+	color: #d8d8d8;
+	display: grid;
+	grid-template-rows: min-content;
+	grid-auto-rows: 100px;
+}
+
+.mapa > * {
+	border: 1px solid #323743;
+}
+
+.mapa_titulo {
+	display: flex;
+	justify-content: space-between;
+	padding: 10px;
+}
+
+.status span {
+	font-size: 40px;
+	padding: 20px;
+}
+
+.titulo_missao {
+	margin: 0;
+}
+
+.btn_missao {
+	background-color: #1E2128;
+	color: aliceblue;
+	display: flex;
+	align-items: center;
+	text-align: left;
+	transition: 0.1s;
+}
+
+.btn_missao:hover{
+	cursor: pointer;
+	border: solid 2px #36e270;
+}
+
+.btn_missao h4{
+	padding: 5px 0;
+}

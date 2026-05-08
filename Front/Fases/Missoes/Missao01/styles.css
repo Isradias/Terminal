@@ -1,0 +1,186 @@
+body {
+	height: 100vh;
+	margin: 0%;
+	background-color: black;
+	font-family: IBM Plex Mono;
+	color: aliceblue;
+	display: flex;
+	flex-direction: column;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+}
+
+header {
+	display: grid;
+	align-items: center;
+	grid-template-columns: 150px 5fr min-content 50px;
+	height: 70px;
+	padding: 0 10px;
+	border-width: 0 0 2px 0;
+	border-style: solid;
+	border-color: #323743;
+}
+
+h4 {
+	font-weight: 300;
+}
+
+header :hover {
+	cursor: pointer;
+}
+
+.logo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #36e270;
+	font-size: larger;
+	height: 100%;
+	box-sizing: border-box;
+	gap: 5px;
+}
+
+.logo img {
+	height: 40px;
+}
+
+.class_nivel {
+	display: flex;
+	align-items: center;
+	justify-content: end;
+	border-width: 0 2px 0 0;
+	border-style: solid;
+	border-color: #323743;
+	padding: 0 10px;
+	height: 30px;
+}
+
+.usuario {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	padding: 0 10px;
+}
+
+.usuario span {
+	font-size: 35px;
+	margin: 0 5px;
+}
+
+.sair {
+	display: flex;
+	justify-content: center;
+}
+
+.logout {
+	background-color: black;
+	border: none;
+}
+
+.logout span {
+	color: aliceblue;
+}
+
+.logout:hover {
+	scale: 1.1;
+}
+
+.container_objetivo{
+	background-color: #13151A;
+    border-bottom: 2px solid #323743;
+    display: flex;
+    padding: 20px;
+    padding-left: 150px;
+    gap: 20px;
+    align-items: center;
+    text-align: center;
+}
+
+.container_objetivo p{
+	padding: 6px;
+    font-size: 12px;
+    color: #36e270;
+    border: #36e270 solid 2px;
+    width: min-content;
+    text-wrap: nowrap;
+}
+
+#objetivo {
+	border: none;
+    color: aliceblue;
+    font-size: 16px;
+    width: 100%;
+    text-wrap: inherit;
+    text-align: left;
+}
+
+.container_terminal {
+	display: flex;
+	flex-direction: column;
+	justify-content: end;
+	background-color: #323743;
+	height: 65%;
+	margin: 2%;
+	padding: 3%;
+	font-weight: 600;
+	font-size: 18px;
+	color: aliceblue;
+	gap: 20px;
+}
+
+#command_line{
+	background-color: transparent;
+	border: none;
+	outline: none;
+	font-weight: 500;
+	font-size: 18px;
+	color: aliceblue;
+}
+
+#command_line::placeholder{
+	font-family: IBM Plex Mono;
+}
+
+#command_line:focus {
+}
+
+.command{
+	color: #36e270;
+}
+
+.response{
+	padding-left: 20px;
+}
+
+.historico{
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	overflow-y: auto;
+
+}
+
+#id_historico::-webkit-scrollbar {
+    width: 8px;
+}
+
+#id_historico::-webkit-scrollbar-track {
+    background: black;
+}
+
+#id_historico::-webkit-scrollbar-thumb {
+    background: #818faf;
+    border-radius: 10px;
+}
+
+#id_historico::-webkit-scrollbar-thumb:hover {
+    background: #64d39f;
+}
