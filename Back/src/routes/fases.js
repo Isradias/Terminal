@@ -41,6 +41,25 @@ router.put("/subir_nivel", async function (req, res) {
 	}
 });
 
+router.put("/reset", async function (req, res) {
+	if (!logged(req, res)) return;
+
+	try {
+		const email = req.session.user.email;
+		const get_result = await sql`
+			SELECT nivel FROM usuarios WHERE email = ${email}
+		`;
+
+		const put_result = await sql`
+			UPDATE usuarios SET nivel = 0, primeiro_acesso = TRUE WHERE email = ${email}
+		`;
+
+		return res.json({ nivel: 0 });
+	} catch (err) {
+		console.log(err);
+	}
+})
+
 router.get("/get_user", async function (req, res) {
 	if (!logged(req, res)) return;
 

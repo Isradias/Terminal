@@ -1,7 +1,7 @@
 import missoes from "./lista_missoes.js";
 import set_header from "./utils.js";
 
-function missao(nb){
+function missao(nb) {
 	if (nb < 10)
 		window.location.href = `/protocolo_0${nb}`
 	else
@@ -71,9 +71,25 @@ window.subir_nivel = async function subir_nivel() {
 	}
 };
 
+async function reset() {
+	try {
+		const response = await fetch("/reset", {
+			method: "PUT"
+		})
+		if (!response.ok) {
+			console.log("Erro ao subir nível");
+			return;
+		}
+	} catch (error) {
+		console.log(error);
+	}
+}
+
 async function main() {
 	const nivel = await set_header();
 	criar_missoes(Number(nivel));
+	const btn_reset = document.getElementById("reset")
+	btn_reset.addEventListener("click", reset())
 }
 
 main();

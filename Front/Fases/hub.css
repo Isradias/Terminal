@@ -155,3 +155,12 @@ header :hover {
 .btn_missao h4{
 	padding: 5px 0;
 }
+
+button {
+	background-color: black;
+	border: none;
+}
+
+button:hover{
+	background-color: #323743;
+}
