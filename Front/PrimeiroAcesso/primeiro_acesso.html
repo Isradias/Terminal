@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primeiro Acesso</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+
+            background:#0b0b16;
+            color:#d9d9d9;
+            font-family:'Share Tech Mono', monospace;
+
+            display:flex;
+            justify-content:center;
+            align-items:center;
+
+            min-height:100vh;
+
+            padding:20px;
+        }
+
+        .container{
+
+            width:100%;
+            max-width:1000px;
+
+            background:#11111d;
+
+            border:1px solid #2d2d44;
+
+            padding:40px;
+
+            box-shadow:
+                0 0 20px rgba(74,58,255,0.15);
+
+            position:relative;
+        }
+
+        .container::before{
+
+            content:"";
+
+            position:absolute;
+
+            left:0;
+            bottom:0;
+
+            width:100%;
+            height:4px;
+
+            background:#3c36ff;
+        }
+
+        .topo{
+
+            text-align:center;
+
+            margin-bottom:40px;
+        }
+
+        .topo h1{
+
+            color:white;
+
+            letter-spacing:4px;
+
+            font-size:18px;
+
+            margin-bottom:20px;
+        }
+
+        .info{
+
+            line-height:2;
+            color:#8d8d9d;
+
+            margin-bottom:40px;
+        }
+
+        .status{
+            color:#3f4cff;
+        }
+
+        .frase{
+
+            margin:40px 0;
+
+            font-size:28px;
+
+            color:white;
+
+            font-style:italic;
+        }
+
+        .descricao{
+
+            color:#9a9aaa;
+
+            line-height:1.8;
+
+            margin-bottom:40px;
+        }
+
+        .bloco{
+
+            margin-bottom:40px;
+        }
+
+        .bloco h2{
+
+            color:#3f4cff;
+
+            margin-bottom:20px;
+
+            font-size:16px;
+
+            letter-spacing:2px;
+        }
+
+        .bloco p,
+        .bloco li{
+
+            color:#d0d0d0;
+
+            line-height:1.8;
+        }
+
+        ul{
+
+            margin-left:20px;
+        }
+
+        .alerta{
+
+            border:1px solid #5a1f1f;
+
+            background:#2a1111;
+
+            color:#ff4c4c;
+
+            padding:20px;
+
+            margin-top:30px;
+
+            line-height:1.8;
+        }
+
+        .rodape{
+
+            margin-top:50px;
+
+            display:flex;
+
+            justify-content:space-between;
+            align-items:center;
+
+            gap:20px;
+
+            flex-wrap:wrap;
+        }
+
+        .btn{
+
+            background:#4338ff;
+
+            color:white;
+
+            border:none;
+
+            padding:18px 35px;
+
+            font-size:16px;
+
+            cursor:pointer;
+
+            transition:0.3s;
+        }
+
+        .btn:hover{
+
+            background:#5b52ff;
+        }
+
+        .skip{
+
+            color:#9d9d9d;
+
+            text-decoration:underline;
+
+            cursor:pointer;
+        }
+
+        @media(max-width:768px){
+
+            .container{
+                padding:25px;
+            }
+
+            .frase{
+                font-size:22px;
+            }
+
+            .rodape{
+                flex-direction:column;
+                align-items:flex-start;
+            }
+
+            .btn{
+                width:100%;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="topo">
+
+            <h1>— RECEBIDO: OPERAÇÃO INICIAL —</h1>
+
+        </div>
+
+        <div class="info">
+
+            [DATA] 2026-05-04 04:22:11 UTC <br>
+            [ORIGEM] RESTRITO // NÚCLEO_CENTRAL <br>
+            [PROTOCOLO] AES-256-ENCRYPTED-STREAM <br>
+            <span class="status">[STATUS]</span> CONEXÃO ESTÁVEL
+
+        </div>
+
+        <div class="frase">
+
+            > “O silêncio nos servidores é o prelúdio da queda.”
+
+        </div>
+
+        <div class="descricao">
+
+            Você foi ativado por um motivo. O perímetro foi rompido
+            e os logs estão sendo apagados em tempo real.
+            Não há tempo para apresentações formais.
+            O terminal é sua única arma.
+
+        </div>
+
+        <div class="bloco">
+
+            <h2>--- SITUAÇÃO</h2>
+
+            <p>
+
+                ataque de força bruta coordenado.
+                Arquivos críticos do diretório central foram criptografados.
+                A infraestrutura está operando em modo de emergência.
+
+            </p>
+
+        </div>
+
+        <div class="bloco">
+
+            <h2>--- SEU PAPEL</h2>
+
+            <ul>
+
+                <li>Infiltrar-se nos nós de rede corrompidos.</li>
+
+                <li>Executar diagnósticos de sistema.</li>
+
+                <li>Isolar a ameaça antes que ela alcance o Kernel principal.</li>
+
+            </ul>
+
+        </div>
+
+        <div class="alerta">
+
+            ALERTA:
+            SE O PROGRESSO ATINGIR 100%,
+            A PURGA DE DADOS SERÁ IRREVERSÍVEL.
+
+        </div>
+
+        <div class="rodape">
+
+            <span class="skip"
+                onclick="window.location.href='/fases'">
+
+                Pular para o jogo
+
+            </span>
+
+            <button
+                class="btn"
+                onclick="window.location.href='/tutorial'">
+
+                Começar Tutorial >
+
+            </button>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

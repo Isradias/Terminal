@@ -16,7 +16,13 @@ async function validate_login() {
 	const mensagem_erro = document.getElementById("erro");
 
 	if (response.ok) {
-		window.location.href = "/fases";
+		const data = await response.json();
+		if (data.primeiro_acesso) {
+			window.location.href = "/PrimeiroAcesso/primeiro_acesso.html";
+		}
+		else {
+			window.location.href = "/fases";
+		}
 	} else {
 		const texto = await response.text();
 		mensagem_erro.innerText = texto;
