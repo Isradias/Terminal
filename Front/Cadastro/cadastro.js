@@ -55,7 +55,7 @@ async function cadastrar() {
         });
 
         const texto = await response.text();
-        
+
         if (response.ok) {
             alert("CONTA_CRIADA: Acesso autorizado. Redirecionando...");
             window.location.href = "/";

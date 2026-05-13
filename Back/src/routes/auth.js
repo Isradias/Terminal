@@ -10,7 +10,7 @@ router.post("/cadastrar", async (req, res) => {
     const { nick, email, senha } = req.body;
 
     // --- REGRAS DE VALIDAÇÃO (ESPELHADAS DO FRONT) ---
-    
+
     // 1. Verifica se campos estão vazios ou são apenas espaços
     if (!nick || !email || !senha || nick.trim() === "" || email.trim() === "") {
         return res.status(400).send("Todos os campos devem ser preenchidos.");
@@ -83,27 +83,40 @@ router.get("/verificar", async (req, res) => {
 });
 
 router.post("/validate_login", async function (req, res) {
-    const { email, senha } = req.body;
-    try {
-        const usuario = await sql`SELECT * FROM usuarios WHERE email = ${email}`;
-        if (usuario.length === 0) return res.status(401).send("Email ou senha incorretos");
-        if (usuario[0].verificado == false) {
-            return res.status(403).send("Verifique o email na caixa de entrada ou spam");
-        }
-        const validate = await bcrypt.compare(senha, usuario[0].senha);
-        if (validate) {
-            req.session.user = { email };
-            return res.status(200).send("Acesso permitido");
-        } else {
-            return res.status(401).send("Email ou senha incorretos");
-        }
-    } catch (err) { res.status(500).send("Erro"); }
+	const { email, senha } = req.body;
+
+	try {
+		const usuario = await sql`
+		SELECT * FROM usuarios WHERE email = ${email}
+		`;
+		if (usuario.length === 0) {
+			return res.status(401).send("Email ou senha incorretos");
+		}
+		if (usuario[0].verificado == false) {
+			return res
+				.status(403)
+				.send("Verifique o email na caixa de entrada ou spam");
+		}
+
+		const validate = await bcrypt.compare(senha, usuario[0].senha);
+		if (validate) {
+			req.session.user = { email }
+			return res.status(200).send("Acesso permitido");
+		} else {
+			return res.status(401).send("Email ou senha incorretos");
+		}
+	} catch (err) {
+		res.status(500).send("Erro");
+	}
 });
 
 router.post("/logout", (req, res) => {
-    req.session.destroy(() => res.sendStatus(200));
+	req.session.destroy(function() {
+		res.sendStatus(200);
+	});
 });
 
+// TODO: Precisa apagar isso aqui :)
 router.get("/delete", async function (req, res) {
     try {
         await sql`TRUNCATE TABLE usuarios`;

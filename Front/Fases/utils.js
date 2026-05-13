@@ -23,7 +23,7 @@ function carregar_nick(nick) {
 	nick_titulo.textContent = nick;
 }
 
-window.logout = async function logout() {
+async function logout() {
 	try {
 		const response = await fetch("/logout", { method: "POST" });
 		if (!response.ok) {
@@ -43,7 +43,11 @@ async function set_header() {
 	const nivel = user.nivel;
 	carregar_nivel(nivel);
 	carregar_nick(nick);
-    return nivel
+	document.querySelector(".logo").addEventListener("click", () => {
+		window.location.href = "/";
+	});
+	document.querySelector(".logout").addEventListener("click", logout);
+	return nivel;
 }
 
-export default set_header
+export default set_header;
