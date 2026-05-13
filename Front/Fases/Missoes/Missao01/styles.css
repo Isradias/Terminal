@@ -1,3 +1,7 @@
+* {
+	box-sizing: border-box;
+}
+
 body {
 	height: 100vh;
 	margin: 0%;
@@ -93,33 +97,42 @@ header :hover {
 	scale: 1.1;
 }
 
-.container_objetivo{
-	background-color: #13151A;
-    border-bottom: 2px solid #323743;
-    display: flex;
-    padding: 20px;
-    padding-left: 150px;
-    gap: 20px;
-    align-items: center;
-    text-align: center;
+.container_objetivo {
+	background-color: #13151a;
+	border-bottom: 2px solid #323743;
+	display: flex;
+	padding: 20px;
+	padding-left: 150px;
+	gap: 20px;
+	align-items: center;
+	text-align: center;
 }
 
-.container_objetivo p{
+.container_objetivo p {
 	padding: 6px;
-    font-size: 12px;
-    color: #36e270;
-    border: #36e270 solid 2px;
-    width: min-content;
-    text-wrap: nowrap;
+	font-size: 12px;
+	color: #36e270;
+	border: #36e270 solid 2px;
+	width: min-content;
+	text-wrap: nowrap;
 }
 
 #objetivo {
 	border: none;
-    color: aliceblue;
-    font-size: 16px;
-    width: 100%;
-    text-wrap: inherit;
-    text-align: left;
+	color: aliceblue;
+	font-size: 16px;
+	width: 100%;
+	text-wrap: inherit;
+	text-align: left;
+}
+
+.jogo {
+	display: grid;
+	flex: 1;
+	grid-template-columns: 3fr 1fr;
+	margin: 2%;
+	min-height: 0;
+	gap: 2%;
 }
 
 .container_terminal {
@@ -127,16 +140,16 @@ header :hover {
 	flex-direction: column;
 	justify-content: end;
 	background-color: #323743;
-	height: 65%;
-	margin: 2%;
+	height: 100%;
 	padding: 3%;
+	gap: 20px;
+	overflow: hidden;
+	min-height: 0;
 	font-weight: 600;
 	font-size: 18px;
-	color: aliceblue;
-	gap: 20px;
 }
 
-#command_line{
+#command_line {
 	background-color: transparent;
 	border: none;
 	outline: none;
@@ -145,42 +158,70 @@ header :hover {
 	color: aliceblue;
 }
 
-#command_line::placeholder{
+#command_line::placeholder {
 	font-family: IBM Plex Mono;
 }
 
 #command_line:focus {
 }
 
-.command{
+.command {
 	color: #36e270;
 }
 
-.response{
+.response {
 	padding-left: 20px;
 }
 
-.historico{
+.historico {
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
 	overflow-y: auto;
-
 }
 
 #id_historico::-webkit-scrollbar {
-    width: 8px;
+	width: 8px;
 }
 
 #id_historico::-webkit-scrollbar-track {
-    background: black;
+	background: black;
 }
 
 #id_historico::-webkit-scrollbar-thumb {
-    background: #818faf;
-    border-radius: 10px;
+	background: #818faf;
+	border-radius: 10px;
 }
 
 #id_historico::-webkit-scrollbar-thumb:hover {
-    background: #64d39f;
+	background: #64d39f;
+}
+
+.instrucoes {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	text-align: justify;
+	padding: 7%;
+	background-color: #13151a;
+}
+
+.instrucoes span,
+.instrucoes h3 {
+	color: #36e270;
+	text-wrap: nowrap;
+}
+
+.instrucoes p {
+	font-size: small;
+}
+
+.instrucoes .material-symbols-outlined {
+	transform: translateY(5px);
+}
+
+.container_comando {
+	padding: 2%;
+	background-color: #292d38;
+	border: #818faf 1px solid;
 }

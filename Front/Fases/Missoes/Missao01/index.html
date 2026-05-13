@@ -1,57 +1,114 @@
 <!doctype html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Terminal_os</title>
+		<link
+			rel="icon"
+			type="image/png"
+			href="../../../assets/img/terminal_logo.png"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@100;300;400;600&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="/Fases/Missoes/Missao01/styles.css" />
+	</head>
 
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Terminal_os</title>
-	<link rel="icon" type="image/png" href="../../../assets/img/terminal_logo.png" />
-	<link rel="stylesheet"
-		href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@100;300;400;600&display=swap"
-		rel="stylesheet">
-	<link rel="stylesheet" href="/Fases/Missoes/Missao01/styles.css">
-</head>
-
-<body>
-	<header>
-		<div class="logo">
-			<img src="../assets/img/terminal_logo.png" alt="logo" />
-			<h3>Terminal</h3>
+	<body>
+		<header>
+			<div class="logo">
+				<img src="../assets/img/terminal_logo.png" alt="logo" />
+				<h3>Terminal</h3>
+			</div>
+			<div class="class_nivel">
+				<h4 id="nivel">NIVEL:</h4>
+			</div>
+			<div class="usuario">
+				<h4 id="nick">usuario</h4>
+				<span class="material-symbols-outlined"> account_circle </span>
+			</div>
+			<div class="sair">
+				<button type="button" class="logout">
+					<span class="material-symbols-outlined"> logout </span>
+				</button>
+			</div>
+		</header>
+		<div class="container_objetivo">
+			<p>Objetivo Atual</p>
+			<p id="objetivo">exemplo</p>
 		</div>
-		<div class="class_nivel">
-			<h4 id="nivel">NIVEL:</h4>
+		<div class="jogo">
+			<div class="container_terminal" id="id_container_terminal">
+				<div class="historico" id="id_historico"></div>
+				<p>
+					>
+					<input
+						type="text"
+						id="command_line"
+						placeholder="digite um comando..."
+					/>
+				</p>
+			</div>
+			<div class="instrucoes">
+				<h3>
+					<span class="material-symbols-outlined"> info </span>
+					INSTRUÇÕES
+				</h3>
+				<p>
+					Você deve navegar pelo sistema de arquivos remoto para
+					encontrar evidências de intrusão. Utilize o comando
+					<span>ls</span> para listar diretórios e
+					<span>cd</span> para acessá-los.
+				</p>
+				<h3>COMANDOS RÁPIDOS</h3>
+				<div class="container_comando">
+					<h3>ls</h3>
+					<p>Lista os arquivos e pastas do diretório atual.</p>
+				</div>
+				<div class="container_comando">
+					<h3>cd [nome]</h3>
+					<p>
+						Altera o diretório de trabalho para a pasta
+						especificada.
+					</p>
+				</div>
+				<div class="container_comando">
+					<h3>cat [arquivo]</h3>
+					<p>Exibe o conteúdo textual de um arquivo específico.</p>
+				</div>
+				<div class="container_comando">
+					<h3>clear</h3>
+					<p>Limpa todo o histórico visível do terminal atual.</p>
+				</div>
+				<div class="container_comando">
+					<h3>pwd</h3>
+					<p>
+						Mostra o caminho completo do diretório atual no
+						terminal.
+					</p>
+				</div>
+				<h3>
+					<span class="material-symbols-outlined"> lightbulb_2 </span>
+					DICA
+				</h3>
+				<p>As vezes, para avançar, é preciso voltar um passo.</p>
+				<p>Quer voltar para a pasta anterior? Use <span>cd ..</span></p>
+			</div>
 		</div>
-		<div class="usuario">
-			<h4 id="nick">usuario</h4>
-			<span class="material-symbols-outlined"> account_circle </span>
+	</body>
+
+	<template id="template">
+		<div class="linha">
+			<p class="command"></p>
+			<p class="response"></p>
 		</div>
-		<div class="sair">
-			<button type="button" class="logout">
-				<span class="material-symbols-outlined"> logout </span>
-			</button>
-		</div>
-	</header>
-	<div class="container_objetivo">
-		<p>Objetivo Atual</p>
-		<p id="objetivo">exemplo</p>
-	</div>
-	<div class="container_terminal" id="id_container_terminal">
-		<div class="historico" id="id_historico"></div>
-		<p>
-			>
-			<input type="text" id="command_line" placeholder="digite um comando...">
-		</p>
-	</div>
-</body>
+	</template>
 
-<template id="template">
-	<div class="linha">
-		<p class="command"></p>
-		<p class="response"></p>
-	</div>
-</template>
-
-<script src="/Fases/Missoes/Missao01/script.js" type="module"></script>
-
+	<script src="/Fases/Missoes/Missao01/script.js" type="module"></script>
 </html>
