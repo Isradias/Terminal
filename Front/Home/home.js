@@ -18,7 +18,7 @@ async function validate_login() {
 	if (response.ok) {
 		const data = await response.json();
 		if (data.primeiro_acesso) {
-			window.location.href = "/PrimeiroAcesso/primeiro_acesso.html";
+			window.location.href = "/apresentacao";
 		}
 		else {
 			window.location.href = "/fases";
