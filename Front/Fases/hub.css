@@ -164,3 +164,57 @@ button {
 button:hover{
 	background-color: #323743;
 }
+
+/* Painel de detalhes */
+.painel_detalhes {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 400px;
+    height: 100vh;
+    border-left: 2px solid #36e270;
+    padding: 20px;
+    flex-direction: column;
+    gap: 15px;
+    background-color: #1E2128;
+    box-sizing: border-box;
+    z-index: 100;
+    overflow-y: auto;
+}
+
+.painel_detalhes.aberto {
+    display: flex;
+}
+
+.painel_detalhes.aberto {
+    display: flex;  /* aparece quando tem a classe .aberto */
+}
+
+.fechar_painel {
+	align-self: flex-end;
+	color: aliceblue;
+	font-size: 18px;
+	cursor: pointer;
+	background: none;
+}
+
+.fechar_painel:hover {
+	color: #36e270;
+	background: none;
+}
+
+.comecar_btn {
+	margin-top: auto;
+	background-color: #36e270;
+	color: black;
+	padding: 10px;
+	font-family: IBM Plex Mono;
+	font-weight: 600;
+	letter-spacing: 2px;
+	cursor: pointer;
+}
+
+.comecar_btn:hover {
+	background-color: #2bc45e;
+}

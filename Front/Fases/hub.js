@@ -8,6 +8,26 @@ function missao(nb) {
 		window.location.href = `/protocolo_${nb}`
 }
 
+// Abrir painel de detalhes da missão
+function abrirPainel(i){
+	const fase = missoes[i];
+	const painel = document.getElementById("painel_detalhes");
+	const conteudo = document.getElementById("painel_conteudo");
+	const btn = document.getElementById("comecar_btn");
+
+	conteudo.innerHTML = `
+		<h4>FASE ${i + 1} — ${fase.dificuldade}</h4>
+        <h2>${fase.titulo}</h2>
+        <p>${fase.subtitulo}</p>
+        <p>${fase.objetivo}</p>
+        <div>${fase.habilidades.join(", ")}</div>
+    `
+
+	btn.onclick = () => missao(i + 1);
+	painel.classList.add("aberto");
+
+}
+
 function criar_missoes(nivel) {
 	const template = document.getElementById("missao_template");
 	const mapa = document.getElementById("id_mapa");
@@ -22,7 +42,7 @@ function criar_missoes(nivel) {
 	for (let i = 0; i < missoes.length; i++) {
 		clone = template.content.cloneNode(true);
 		clone.querySelector(".btn_missao").addEventListener("click", () => {
-			missao(i + 1)
+			abrirPainel(i)
 		})
 		clone.querySelector(".fase").innerHTML =
 			`Fase ${i + 1} <span>${missoes[i].dificuldade}</span>`;
@@ -90,6 +110,10 @@ async function main() {
 	criar_missoes(Number(nivel));
 	const btn_reset = document.getElementById("reset")
 	btn_reset.addEventListener("click", reset())
+
+	document.getElementById("fechar_painel").addEventListener("click", () => {
+		document.getElementById("painel_detalhes").classList.remove("aberto");
+	});
 }
 
 main();
