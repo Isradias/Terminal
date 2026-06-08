@@ -93,6 +93,18 @@ export class Pasta {
 
         return filho.conteudo
     }
+
+	mv(alvo, destino) {
+    const item = this.filhos.find((x) => x.nome == alvo);
+    
+    if (item == undefined) {
+        throw new Error("Item não encontrado");
+    }
+    
+    this.filhos = this.filhos.filter((x) => x.nome != alvo);
+    destino.filhos.push(item);
+    item.pai = destino;
+	}
 }
 
 let diretorio = new Pasta("~");
