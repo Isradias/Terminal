@@ -21,4 +21,25 @@ async function validate_login() {
         const texto = await response.text();
         mensagem_erro.innerText = texto;
     }
+}async function gerar QR () {
+    const res = await fetch ('http://localhost:3000/2fa/setup');
+    const data= await res.json();
+    document.getElementbyID('qr').src = data.qrcode;
+
+}
+async function verificar() {
+    const token =
+    document.getElementById ('codigo').value;
+    const res = await fetch (
+        'http://localhost3000/2fa/verify',
+{
+    method : 'POST',
+    handers:{
+        'content-type': 'application/json'
+    },
+    body : json.stringify({token})
+}
+    );
+    const msg = await res.text();
+    alert(msg);
 }

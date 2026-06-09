@@ -1,4 +1,4 @@
-import express from "express";
+import express from "expres";
 import bcrypt from "bcrypt";
 import crypto from "crypto";
 import sql from "../../db.js";
@@ -112,3 +112,30 @@ router.get("/delete", async function (req, res) {
 });
 
 export default router;
+
+const express = require('express');
+const router = express.Router();
+const qrcode = require('qrcode');
+const {gerarSegredo, verificarCodigo}= require('../Services/twofa.js');
+ 
+let segredoTemp;
+
+router.get('/2fa/setup', async(req,res)=>{
+	const secret= gerarSegredo();
+	segredoTemp = secret.base32;
+
+	const qrcode= await qrcode.toDataURL (secret.otpauth_url);
+	res.json ({qrcode})
+});
+
+router.post('/2fa/verify',(req,res)=>{
+const {token} = req.body;
+
+const valido = verificarCodigo(segredoTemp,token);
+if (valido){
+return res.send("2FA válido");
+}else{
+	return res.status(401).send("código inválido");
+}
+
+});
