@@ -15,8 +15,12 @@ body {
 }
 
 .logo img {
-	height: 35px;
-	fill: #36e270;
+	height: 40px;
+	object-fit: contain;
+	background: #ffffff;
+	padding: 4px;
+	border-radius: 6px;
+	box-shadow: 0 2px 6px rgba(0,0,0,0.4);
 }
 
 .titulo hr {
@@ -27,16 +31,19 @@ body {
 	display: flex;
 	flex-direction: column;
 	border: 2px solid #323743;
-	padding: 20px;
-	border-radius: 0px;
+	padding: 18px;
+	border-radius: 8px;
 	background-color: #191b21;
-	width: 300px;
+	width: 90%;
+	max-width: 360px;
+	box-sizing: border-box;
+	align-items: center;
 	text-align: center;
 	font-size: 12px;
 	line-height: 16px;
 	font-weight: 400;
 	color: #bdc1caff;
-	gap: 30px;
+	gap: 18px;
 }
 h1 {
 	color: #36e270;
@@ -63,7 +70,9 @@ h6 {
 .formulario {
 	display: flex;
 	flex-direction: column;
-	text-align: start;
+	width: 100%;
+	text-align: left;
+	align-items: stretch;
 }
 
 .formulario label {
@@ -71,8 +80,12 @@ h6 {
 }
 
 .formulario input {
-	background-color: black;
+	background: transparent;
 	height: 40px;
+	color: #e6eef1;
+	border: 1px solid #2b2d33;
+	padding: 8px 10px;
+	border-radius: 6px;
 }
 
 .input-wrapper {
@@ -126,4 +139,87 @@ h6 {
 	border-color: #323743;
 	width: 40%;
     height: 1px;
+}
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 60px;
+	height: 34px;
+}
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  background-color: #ccc;
+  border-radius: 34px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #4CAF50;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Estilos para a área 2FA */
+.twofa-row {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.twofa-text {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.switch-label {
+	font-size: 13px;
+	color: #bdc1caff;
+}
+
+.status {
+	font-size: 12px;
+	color: #9aa0a6;
+}
+
+.verificador {
+	display: flex;
+	gap: 8px;
+	justify-content: center;
+	align-items: center;
+}
+
+.verificador input {
+	padding: 8px;
+	font-size: 13px;
+}
+
+.verificador button {
+	padding: 8px 12px;
+	background-color: #36e270;
+	border: none;
+	cursor: pointer;
 }

@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Terminal_os</title>
-		<link rel="stylesheet" href="Home/home.css" />
+		<link rel="stylesheet" href="home.css" />
 		<link
 			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
 			rel="stylesheet"
@@ -14,8 +14,7 @@
 		<div class="container">
 			<div class="titulo">
 				<div class="logo">
-					<img src="\terminal\Front\assets\img\terminal_logo.png"
-					/>
+					<img src="../assets/img/terminal_logo.png" alt="Terminal OS logo" />
 					<h1>TERMINAL_OS</h1>
 				</div>
 				<hr />
@@ -60,18 +59,30 @@
 				<a href="/cadastro" class="btn-cadastro">CRIAR NOVA CONTA</a>
 				<p id="erro" style="color: red"></p>
 			</div>
-			<div class ="ou">
-			<hr />
-					ou
-					<hr />
+			<div class="ou">
+				<hr />
 			</div>
-			<h2> ativar autenticaçao de dois fatores </h2> <button onclik ="gerarQR()"> Gerar QR Code </button>
-			<br></br>
-			<img id= "qr">
-			<h2> verificador de codigo<h2>
-				<input id="codigo" placeholder = "digite o codigo">
-				<button onclick="verificar ()"> verificar  </button>
+
+			<div class="twofa">
+				<div class="twofa-row">
+					<label class="switch">
+						<input type="checkbox" id="toggle2fa" onchange="toggle2FA()">
+						<span class="slider"></span>
+					</label>
+					<div class="twofa-text">
+						<span class="switch-label">Ativar autenticação em duas etapas</span>
+						<span id="status2fa" class="status">Desativado</span>
+					</div>
+				</div>
+			</div>
+
+			<img id="qr">
+			<h2>Verificador de código</h2>
+			<div class="verificador">
+				<input id="codigo" placeholder="Digite o código">
+				<button onclick="verificar()">Verificar</button>
+			</div>
 		</div>
 	</body>
-	<script src="Home/home.js"></script>
+		<script src="home.js"></script>
 </html>
