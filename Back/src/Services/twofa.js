@@ -1,9 +1,10 @@
-const speakeasy = require('speakeasy');
+import speakeasy from "speakeasy";
 
-exports.gerarSegredo= () =>{
+export function gerarSegredo() {
     return speakeasy.generateSecret({ name: 'terminal_os'});
-};
-exports.verificarCodigo = (secret, token) => {
+}
+
+export function verificarCodigo(secret, token) {
     return speakeasy.totp.verify({
     secret: secret,
     encoding: 'base32',
@@ -11,3 +12,5 @@ exports.verificarCodigo = (secret, token) => {
     window:1
     });
 };
+module.exports = {gerarSegredo, verificarCodigo};
+

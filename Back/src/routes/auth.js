@@ -1,10 +1,14 @@
-import express from "expres";
+import express from "express";
 import bcrypt from "bcrypt";
 import crypto from "crypto";
 import sql from "../../db.js";
 import { enviarEmail } from "../services/email.js";
+import qrcode from "qrcode";
+import { gerarSegredo, verificarCodigo } from "../services/twofa.js";
 
-const router = express.Router();
+
+let segredoTemp = {}; // guardar segredo por usuário
+
 
 router.post("/cadastrar", async (req, res) => {
 	const { nick, email, senha } = req.body;
@@ -29,9 +33,7 @@ router.post("/cadastrar", async (req, res) => {
 
 		enviarEmail(email, token);
 
-		res.send(
-			"Cadastro realizado! Por favor, verifique seu email para autenticação do usuário",
-		);
+		res.send("Cadastro realizado! Verifique seu email");
 	} catch (err) {
 		res.status(500).send("Erro");
 	}
@@ -56,7 +58,7 @@ router.get("/verificar", async (req, res) => {
 				UPDATE usuarios
 				SET verificado = true, token = NULL
 				WHERE email = ${email}
-				`;
+			`;
 			res.send("Conta verificada!");
 		} else {
 			return res.status(400).send("Token inválido");
@@ -66,39 +68,90 @@ router.get("/verificar", async (req, res) => {
 	}
 });
 
-router.post("/validate_login", async function (req, res) {
+router.post("/validate_login", async (req, res) => {
 	const { email, senha } = req.body;
 
 	try {
 		const usuario = await sql`
-		SELECT * FROM usuarios WHERE email = ${email}
+			SELECT * FROM usuarios WHERE email = ${email}
 		`;
+
 		if (usuario.length === 0) {
 			return res.status(401).send("Email ou senha incorretos");
 		}
-		if (usuario[0].verificado == false) {
-			return res
-				.status(403)
-				.send("Verifique o email na caixa de entrada ou spam");
+
+		if (!usuario[0].verificado) {
+			return res.status(403).send("Verifique seu email");
 		}
 
 		const validate = await bcrypt.compare(senha, usuario[0].senha);
-		if (validate) {
-			return res.status(200).send("Acesso permitido");
-		} else {
+
+		if (!validate) {
 			return res.status(401).send("Email ou senha incorretos");
 		}
+
+	
+await sql`
+UPDATE usuarios
+SET secret_2fa = ${secret.base32}
+WHERE email = ${email}
+`;
+		if (usuario[0].twofa_ativo) {
+    return res.json({
+        msg: "2FA necessário",
+        twofa: true,
+        email
+    });
+} else {
+    return res.json({
+        msg: "Login completo",
+        twofa: false
+    });
+}
+
+		
+
+		return res.json({
+			msg: "Escaneie o QR Code no Google Authenticator",
+			qrCode,
+			email
+		});
+
 	} catch (err) {
 		res.status(500).send("Erro");
 	}
 });
 
-// TODO: Precisa apagar isso aqui :)
-router.get("/delete", async function (req, res) {
+router.post("/2fa/verify", (req, res) => {
+	const { email, token } = req.body;
+const usuario = await sql`
+    SELECT secret_2fa FROM usuarios WHERE email = ${email}
+`;
+
+const valido = verificarCodigo(
+    usuario[0].secret_2fa,
+    token
+);
+
+	if (!segredo) {
+		return res.status(400).send("2FA não iniciado");
+	}
+
+	const valido = verificarCodigo(segredo, token);
+
+	if (valido) {
+		delete segredoTemp[email]; // limpa
+
+		return res.send("Login completo ✅");
+	} else {
+		return res.status(401).send("Código inválido ❌");
+	}
+});
+
+router.get("/delete", async (req, res) => {
 	try {
-		await sql`
-            TRUNCATE TABLE usuarios
-        `;
+		await sql`TRUNCATE TABLE usuarios`;
+
 		res.send(`
 			<script>
 				alert("Tabela limpa");
@@ -106,36 +159,49 @@ router.get("/delete", async function (req, res) {
 			</script>
 		`);
 	} catch (err) {
-		console.log(err);
 		res.status(500).send("Erro ao deletar");
 	}
 });
 
 export default router;
 
-const express = require('express');
-const router = express.Router();
-const qrcode = require('qrcode');
-const {gerarSegredo, verificarCodigo}= require('../Services/twofa.js');
- 
-let segredoTemp;
+router.post("/2fa/ativar", async (req, res) => {
+    const { email } = req.body;
 
-router.get('/2fa/setup', async(req,res)=>{
-	const secret= gerarSegredo();
-	segredoTemp = secret.base32;
+    const secret = gerarSegredo();
 
-	const qrcode= await qrcode.toDataURL (secret.otpauth_url);
-	res.json ({qrcode})
+    await sql`
+        UPDATE usuarios
+        SET 
+            twofa_ativo = true,
+            secret_2fa = ${secret.base32}
+        WHERE email = ${email}
+    `;
+
+    const qrCode = await qrcode.toDataURL(secret.otpauth_url);
+
+    res.json({ qrCode });
 });
 
-router.post('/2fa/verify',(req,res)=>{
-const {token} = req.body;
+router.post("/2fa/desativar", async (req, res) => {
+    const { email } = req.body;
 
-const valido = verificarCodigo(segredoTemp,token);
-if (valido){
-return res.send("2FA válido");
-}else{
-	return res.status(401).send("código inválido");
-}
+    await sql`
+        UPDATE usuarios
+        SET 
+            twofa_ativo = false,
+            secret_2fa = NULL
+        WHERE email = ${email}
+    `;
 
+    res.send("2FA desativado");
+});
+router.get("/status-2fa", async (req, res) => {
+  const { email } = req.query;
+
+  const user = await sql`
+    SELECT twofa_ativo FROM usuarios WHERE email = ${email}
+  `;
+
+  res.json({ twofa_ativo: user[0].twofa_ativo });
 });
