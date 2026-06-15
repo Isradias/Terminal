@@ -27,7 +27,7 @@ const eventos = diretorio.filhos.find(
 
 eventos.conteudo = `[RELATÓRIO DE ISOLAMENTO]<br><br>
 
-Data: 1363-02-21<br><br>
+Data: 1363-02-25<br><br>
 
 Uma sequência de acessos não autorizados
 foi detectada neste nó da rede.<br><br>
@@ -56,11 +56,11 @@ const bonus = diretorio.filhos.find(
 );
 
 bonus.conteudo = `
-    3044 4420 2b20 6e6c 6f67<br> 
-    202b 2063 6f64 6967 6f5e<br>
-    5e31 2f32 202b 2059 5959<br>
-    5920 2b20 4d4d 0a6c 6569<br>
-    6120 6f20 636c 6f67
+    2d6e 6c6f 6720 2b20 636f 6469 676f 5e5e<br>
+    312f 3220 2b20 5959 5959 202b 2049 4920<br>
+    2b20 6669 6228 3130 290d 0a2d 3020 696e<br>
+    6963 6961 0d0a 2d6c 6569 6120 6f20 636c<br>
+    6f67
 `
 
 //Voltando pra raiz

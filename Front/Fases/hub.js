@@ -42,7 +42,12 @@ function criar_missoes(nivel) {
 	for (let i = 0; i < missoes.length; i++) {
 		clone = template.content.cloneNode(true);
 		clone.querySelector(".btn_missao").addEventListener("click", () => {
-			abrirPainel(i)
+			// abrirPainel(i)
+			if (nivel < i) {
+				alert("Missão indisponível")
+			} else {
+				missao(i + 1)
+			}
 		})
 		clone.querySelector(".fase").innerHTML =
 			`Fase ${i + 1} <span>${missoes[i].dificuldade}</span>`;

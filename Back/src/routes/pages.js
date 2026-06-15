@@ -50,4 +50,9 @@ router.get("/protocolo_02", (req, res) => {
 	res.sendFile(path.resolve("../Front/Fases/Missoes/Missao02/index.html"));
 })
 
+router.get("/protocolo_03", (req, res) => {
+	if (!logged(req, res)) return
+	res.sendFile(path.resolve("../Front/Fases/Missoes/Missao03/index.html"));
+})
+
 export default router;

@@ -10,7 +10,7 @@ const arquivos_encontrados = new Set()
 function set_objetivo() {
 	const objetivo = document.getElementById("objetivo");
 
-	objetivo.innerText = lista_missoes[0].objetivo;
+	objetivo.innerText = lista_missoes[1].objetivo;
 }
 
 function ls() {
