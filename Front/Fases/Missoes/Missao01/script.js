@@ -1,27 +1,10 @@
-import set_header from "../../utils.js";
+import { set_header, subir_nivel } from "../../utils.js";
 import pastas from "./pastas.js";
-import diretorio, { Pasta, Arquivo } from "./class_pastas.js";
+import diretorio from "./setup.js";
+import { Pasta, Arquivo } from "../../object.js";
 import lista_missoes from "../../lista_missoes.js";
 
 let diretorio_atual = diretorio;
-
-async function subir_nivel() {
-	try {
-		const response = await fetch("/subir_nivel", {
-			method: "PUT",
-		});
-
-		if (!response.ok) {
-			console.log("Erro ao subir nível");
-			return;
-		}
-
-		const data = await response.json();
-		carregar_nivel(data.nivel);
-	} catch (err) {
-		console.log(err);
-	}
-}
 
 function set_objetivo() {
 	const objetivo = document.getElementById("objetivo");
@@ -39,10 +22,6 @@ function pwd() {
 
 function cd(destino) {
 	diretorio_atual = diretorio_atual.cd(destino);
-}
-
-function mkdir(nova_pasta) {
-	diretorio_atual.mkdir(nova_pasta);
 }
 
 function cat(arquivo) {
@@ -68,39 +47,35 @@ async function use_command(line) {
 
 	let resposta = "";
 
-	if (comando == "") {
-    } else if (comando == "help"){
-        resposta = "Comandos disponíveis: pwd, ls, cd, cat, clear";
-	} else if (comando == "ls") {
-		resposta = ls();
-	} else if (comando == "pwd") {
-		resposta = pwd();
-	} else if (comando == "cd") {
-		try {
-			cd(argumento);
-		} catch (error) {
-			resposta = `<p style="color: red">${error}</p>`;
+	console.log(partes.length);
+	
+	if (partes.length == 1){
+		if (comando == "") {
+		} else if (comando == "help"){
+			resposta = "Comandos disponíveis: pwd, ls, cd, cat, clear";
+		} else if (comando == "ls") {
+			resposta = ls();
+		} else if (comando == "pwd") {
+			resposta = pwd();
+		} else if (comando == "cd") {
+			try {
+				cd(argumento);
+			} catch (error) {
+				resposta = `<p style="color: red">${error}</p>`;
+			}
 		}
-	} else if (comando == "mkdir") {
-		try {
-			mkdir(argumento);
-		} catch (error) {
-			resposta = `<p style="color: red">${error}</p>`;
-		}
-	} else if (comando == "cat") {
-		try {
-			resposta = cat(argumento);
-			// TODO: Tirar isso, é só pra brincadeira
-			subir_nivel();
-            setTimeout(() => {
-                alert("Parabéns, você passou de nível")
-            }, 3000)
-			setTimeout(() => {
-				window.location.href = "/fases";
-			}, 8000);
-		} catch (error) {
-			resposta = `<p style="color: red">${error}</p>`;
-		}
+	}
+	else if (comando == "cat") {
+	try {
+		resposta = cat(argumento);
+		
+		subir_nivel(1);
+		setTimeout(() => {
+			alert("Parabéns recruta, já sabe o básico para navegar entre pastas, temos uma missão nova disponível")
+		}, 2000);
+	} catch (error) {
+		resposta = `<p style="color: red">${error}</p>`;
+	}
 	} else {
 		resposta = `<p style="color: red">Comando não reconhecido</p>`;
 	}
@@ -131,10 +106,15 @@ function main() {
 	command_line.addEventListener("keydown", (e) => {
 		if (e.key === "Enter") {
 			use_command(command_line.value);
-
 			command_line.value = "";
 		}
 	});
+
+	document
+		.getElementById("sair")
+		.addEventListener("click", () => {
+			window.location.href = "/fases"
+		})
 }
 
 main();

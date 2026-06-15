@@ -1,5 +1,5 @@
 import missoes from "./lista_missoes.js";
-import set_header from "./utils.js";
+import { set_header } from "./utils.js";
 
 function missao(nb) {
 	if (nb < 10)
@@ -97,7 +97,7 @@ async function reset() {
 			method: "PUT"
 		})
 		if (!response.ok) {
-			console.log("Erro ao subir nível");
+			console.log("Erro ao resetar nível");
 			return;
 		}
 	} catch (error) {
@@ -109,7 +109,7 @@ async function main() {
 	const nivel = await set_header();
 	criar_missoes(Number(nivel));
 	const btn_reset = document.getElementById("reset")
-	btn_reset.addEventListener("click", reset())
+	btn_reset.addEventListener("click", reset)
 
 	document.getElementById("fechar_painel").addEventListener("click", () => {
 		document.getElementById("painel_detalhes").classList.remove("aberto");

@@ -126,6 +126,19 @@ header :hover {
 	text-align: left;
 }
 
+#sair {
+	position: absolute;
+	font-size: 20px;
+	padding: 10px;
+	cursor: pointer;
+	right: 25px;
+}
+
+#sair:hover {
+	color: red;
+	font-size: 25px;
+}
+
 .jogo {
 	display: grid;
 	flex: 1;

@@ -37,7 +37,7 @@ async function logout() {
 	}
 }
 
-async function set_header() {
+export async function set_header() {
 	const user = await get_user();
 	const nick = user.nick;
 	const nivel = user.nivel;
@@ -50,4 +50,24 @@ async function set_header() {
 	return nivel;
 }
 
-export default set_header;
+export async function subir_nivel(nivel) {
+	const user = await get_user();
+	if (nivel <= user.nivel) {
+		return
+	}
+	try {
+		const response = await fetch("/subir_nivel", {
+			method: "PUT",
+		});
+
+		if (!response.ok) {
+			console.log("Erro ao subir nível");
+			return;
+		}
+
+		const data = await response.json();
+		carregar_nivel(data.nivel);
+	} catch (err) {
+		console.log(err);
+	}
+}
