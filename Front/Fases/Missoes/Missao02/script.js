@@ -5,11 +5,12 @@ import { Pasta, Arquivo } from "../../object.js";
 import lista_missoes from "../../lista_missoes.js";
 
 let diretorio_atual = diretorio;
+const arquivos_encontrados = new Set()
 
 function set_objetivo() {
 	const objetivo = document.getElementById("objetivo");
 
-	objetivo.innerText = lista_missoes[1].objetivo;
+	objetivo.innerText = lista_missoes[0].objetivo;
 }
 
 function ls() {
@@ -27,6 +28,10 @@ function cd(destino) {
 
 function cat(arquivo) {
 	return diretorio_atual.cat(arquivo);
+}
+
+function ls_a() {
+	return diretorio_atual.ls_a();
 }
 
 async function use_command(line) {
@@ -69,19 +74,29 @@ async function use_command(line) {
 				resposta = `<p style="color: red">${error}</p>`;
 			}
 		}
+		else if (comando == "ls" && argumento == "-A"){
+			resposta = ls_a()
+		}
 		else if (comando == "cat") {
 			try {
 				resposta = cat(argumento);
-				
-				subir_nivel(1);
-				setTimeout(() => {
-					alert("Parabéns recruta, já sabe o básico para navegar entre pastas, temos uma missão nova disponível")
-				}, 2000);
+				if (["relatorio-03.txt", ".eventos.txt"].includes(argumento)){
+					arquivos_encontrados.add(argumento)
+					document.getElementById("status").textContent=arquivos_encontrados.size
+				}
+				if (arquivos_encontrados.size == 2) {
+					subir_nivel(2);
+					setTimeout(() => {
+						alert("Muito bem recruta! Os arquivos foram encontrados com sucesso.",
+							  "temos uma missão nova disponível")
+					}, 2000);
+				}
 			} catch (error) {
 				resposta = `<p style="color: red">${error}</p>`;
 			}
 		}
 	}
+
 	clone.querySelector(".response").innerHTML = resposta;
 
 	const historico = document.getElementById("id_historico");
@@ -91,6 +106,8 @@ async function use_command(line) {
 }
 
 function main() {
+	console.log("4PMW+4H");
+	
 	set_header();
 
 	set_objetivo();

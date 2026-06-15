@@ -12,8 +12,8 @@ const missoes = [
 		subtitulo: "Encontre evidências escondidas no sistema.",
 		dificuldade: "Easy",
 		objetivo:
-			"Localizar um arquivo específico e visualizar seu conteúdo.",
-		habilidades: ["find", "cat", "less"],
+    		"Localizar informações ocultas no diretório e analisar os registros encontrados.",
+		habilidades: ["pwd", "ls", "cd"],
 	},
 	{
 		titulo: "Limpeza de Rastros",

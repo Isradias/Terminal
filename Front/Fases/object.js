@@ -35,15 +35,22 @@ export class Pasta {
 		this.filhos.push(arquivo);
 	}
 
-	ls() {
+    ls() {
+        return this.filhos
+            .filter((filho) => !filho.nome.startsWith("."))
+            .sort((a, b) => a.nome.localeCompare(b.nome))
+            .map((filho) =>
+                filho instanceof Pasta ? filho.nome + "/" : filho.nome
+            )
+            .join(" ");
+    }
+
+	ls_a() {
 		return this.filhos
-
 			.sort((a, b) => a.nome.localeCompare(b.nome))
-
 			.map((filho) =>
-				filho instanceof Pasta ? "/" + filho.nome : filho.nome,
+				filho instanceof Pasta ? filho.nome + "/" : filho.nome
 			)
-
 			.join(" ");
 	}
 
@@ -95,14 +102,14 @@ export class Pasta {
     }
 
 	mv(alvo, destino) {
-    const item = this.filhos.find((x) => x.nome == alvo);
-    
-    if (item == undefined) {
-        throw new Error("Item não encontrado");
-    }
-    
-    this.filhos = this.filhos.filter((x) => x.nome != alvo);
-    destino.filhos.push(item);
-    item.pai = destino;
+        const item = this.filhos.find((x) => x.nome == alvo);
+        
+        if (item == undefined) {
+            throw new Error("Item não encontrado");
+        }
+        
+        this.filhos = this.filhos.filter((x) => x.nome != alvo);
+        destino.filhos.push(item);
+        item.pai = destino;
 	}
 }

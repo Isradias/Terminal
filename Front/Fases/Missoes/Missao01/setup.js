@@ -5,6 +5,7 @@ let diretorio = new Pasta("~");
 diretorio.mkdir("central");
 diretorio.mkdir("arquivos");
 diretorio.mkdir("setores");
+diretorio.mkdir(".seguranca")
 
 diretorio = diretorio.cd("setores");
 
@@ -18,7 +19,7 @@ diretorio.mkdir("manutencao");
 
 diretorio.touch("LEIAME.txt");
 const arquivo = diretorio.filhos.find((x) => x.nome == "LEIAME.txt")
-arquivo.conteudo = `[LOG DE INICIALIZAÇÃO]<br>
+arquivo.conteudo = `[LOG DE INICIALIZAÇÃO N°21]<br>
                 Conexão estabelecida.<br><br>
                 A maioria dos setores não responde.<br><br>
                 Os protocolos automáticos de contenção<br>
@@ -27,7 +28,7 @@ arquivo.conteudo = `[LOG DE INICIALIZAÇÃO]<br>
                 talvez ainda exista uma forma de<br>
                 restaurar a Central.<br><br>
                 Procure pelos registros restantes.<br><br>
-                2198
+                Código: 9604
                 `
 
 diretorio = diretorio.cd("..");
