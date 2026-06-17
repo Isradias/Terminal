@@ -9,21 +9,46 @@ function missao(nb) {
 }
 
 // Abrir painel de detalhes da missão
-function abrirPainel(i){
+function abrirPainel(i, nivel){
 	const fase = missoes[i];
+	console.log("fase:", fase);
+	console.log("narrativa:", fase.narrativa);
 	const painel = document.getElementById("painel_detalhes");
 	const conteudo = document.getElementById("painel_conteudo");
 	const btn = document.getElementById("comecar_btn");
 
 	conteudo.innerHTML = `
-		<h4>FASE ${i + 1} — ${fase.dificuldade}</h4>
-        <h2>${fase.titulo}</h2>
-        <p>${fase.subtitulo}</p>
-        <p>${fase.objetivo}</p>
-        <div>${fase.habilidades.join(", ")}</div>
-    `
+		<div class="painel_protocol">
+			<span class="painel_protocol_txt">&gt;_ SYSTEM PROTOCOL 0${i + 1}</span>
+		</div>
+		<h2 class="painel_titulo">${fase.titulo}</h2>
 
-	btn.onclick = () => missao(i + 1);
+		<div class="painel_secao">
+			<span class="material-symbols-outlined painel_icone">info</span>
+			<h4 class="painel_secao_titulo">BRIEFING DA MISSÃO</h4>
+		</div>
+		<p class="painel_texto">${fase.narrativa ?? fase.subtitulo}</p>
+
+		<div class="painel_objetivo">
+			<h4 class="painel_objetivo_titulo">OBJETIVO PRINCIPAL</h4>
+			<p class="painel_texto">${fase.objetivo}</p>
+		</div>
+
+		<div class="painel_secao">
+			<span class="material-symbols-outlined painel_icone">terminal</span>
+			<h4 class="painel_secao_titulo">COMANDOS REQUERIDOS</h4>
+		</div>
+		<div class="painel_comandos">
+			${fase.habilidades.map(h => `<span class="painel_cmd">${h}</span>`).join("")}
+		</div>
+    `
+	btn.onclick = () => {
+    	if (i <= nivel) {
+        	missao(i + 1)
+    	}	 else {
+        	alert("Missão indisponível")
+    	}
+	}
 	painel.classList.add("aberto");
 
 }
@@ -42,12 +67,7 @@ function criar_missoes(nivel) {
 	for (let i = 0; i < missoes.length; i++) {
 		clone = template.content.cloneNode(true);
 		clone.querySelector(".btn_missao").addEventListener("click", () => {
-			// abrirPainel(i)
-			if (nivel < i) {
-				alert("Missão indisponível")
-			} else {
-				missao(i + 1)
-			}
+    		abrirPainel(i, nivel)
 		})
 		clone.querySelector(".fase").innerHTML =
 			`Fase ${i + 1} <span>${missoes[i].dificuldade}</span>`;

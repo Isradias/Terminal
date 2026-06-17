@@ -117,6 +117,7 @@ header :hover {
 	display: grid;
 	grid-template-rows: min-content;
 	grid-auto-rows: 100px;
+	
 }
 
 .mapa > * {
@@ -187,10 +188,6 @@ button:hover{
     display: flex;
 }
 
-.painel_detalhes.aberto {
-    display: flex;  /* aparece quando tem a classe .aberto */
-}
-
 .fechar_painel {
 	align-self: flex-end;
 	color: aliceblue;
@@ -217,4 +214,70 @@ button:hover{
 
 .comecar_btn:hover {
 	background-color: #2bc45e;
+}
+.painel_protocol_txt {
+    color: #36e270;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.painel_titulo {
+    font-size: 28px;
+    margin: 8px 0 20px 0;
+    line-height: 1.2;
+}
+
+.painel_secao {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.painel_icone {
+    font-size: 18px;
+    color: #888;
+}
+
+.painel_secao_titulo {
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: #888;
+}
+
+.painel_texto {
+    font-size: 13px;
+    line-height: 1.7;
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+.painel_objetivo {
+    border-left: 3px solid #36e270;
+    padding: 10px 14px;
+    margin-bottom: 20px;
+    background-color: #12180f;
+}
+
+.painel_objetivo_titulo {
+    color: #36e270;
+    font-size: 11px;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+}
+
+.painel_comandos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.painel_cmd {
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    color: #ccc;
+    padding: 4px 10px;
+    font-size: 12px;
+    font-family: IBM Plex Mono;
+    border-radius: 3px;
 }
