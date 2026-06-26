@@ -67,7 +67,7 @@ router.post("/cadastrar", async (req, res) => {
             VALUES (${nick}, ${email}, ${hash_senha}, ${hash_token})
         `;
 
-		enviarEmail(email, token);
+		await enviarEmail(email, token);
 
 		res.send(
 			"Cadastro realizado! Por favor, verifique seu email para autenticação do usuário",
